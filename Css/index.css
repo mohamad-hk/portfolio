@@ -1,0 +1,26 @@
+body,
+header {
+  background-color: #fcfcfc;
+}
+#slider {
+  background-image: url(../../portfolio/Images/banner.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  width: 90vw;
+  height: 100vh;
+  & div {
+    & div {
+      width: 25vw;
+      top: 30%;
+      left: 20%;
+      & h2 {
+        border-top: 5px solid #d2b356;
+      }
+      & p {
+        border-bottom: 5px solid #d2b356;
+      }
+    }
+  }
+}
