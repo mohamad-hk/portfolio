@@ -1,6 +1,6 @@
 const ContactUs = () => {
   return (
-    <form className="w-[30%] mx-auto flex flex-col gap-4">
+    <form className="w-[30%] mx-auto flex flex-col gap-4"  id="contact">
       <div className="flex flex-col md:flex-row items-center gap-10">
         <input
           type="text"
