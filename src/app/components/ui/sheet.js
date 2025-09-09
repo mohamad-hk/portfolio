@@ -4,7 +4,7 @@ import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { IoClose } from "react-icons/io5";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 
 function Sheet(props) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
