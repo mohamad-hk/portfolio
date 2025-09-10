@@ -1,17 +1,10 @@
-import CircularText from "../ui/CircularText";
+
 
 const AboutMe = () => {
   return (
     <div className="flex flex-row  ">
       <div className="flex flex-row w-[90%] md:w-[800px] mx-auto relative">
-      <CircularText
-        text="ABOUT"
-        onHover="slowDown"
-        spinDuration={20}
-        className="hidden md:block"
-      />
       <div className="flex flex-col gap-4 md:w-[50%] mx-auto">
-
         <h2 className="text-2xl">About me</h2>
         <p className="text-justify leading-6">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim rerum a

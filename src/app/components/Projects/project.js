@@ -7,16 +7,16 @@ const Projects = async () => {
   project_data = project_data.items;
 
   return (
-    <div className="flex flex-col w-[60%] mx-auto gap-6 my-10">
+    <div className="flex flex-col w-[90%] md:w-[90%] xl:w-[60%] mx-auto gap-y-6 my-10">
       {project_data.map((item, index) => {
         return (
           <div
             key={index}
-            className={`flex  mx-auto ${
-              index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+            className={`flex flex-col  mx-auto ${
+              index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
-            <div className={`bg-blue-200 p-4 max-w-[400px] flex flex-row justify-center items-center ${index % 2 === 0?"rounded-l-2xl":"rounded-r-2xl"} `}>
+            <div className={`bg-blue-200 p-4 md:max-w-[500px] flex flex-row justify-center items-center rounded-t-2xl md:rounded-t-none ${index % 2 === 0?"md:rounded-l-2xl":"md:rounded-r-2xl"} `}>
               <Image
                 src={item.project_demo}
                 width={400}
@@ -25,7 +25,7 @@ const Projects = async () => {
                 className="rounded-md"
               />
             </div>
-            <div className={`flex flex-col gap-4 p-4 ${index % 2 === 0?"rounded-r-2xl":"rounded-l-2xl"} max-w-[500px] bg-[#98b5e4]`}>
+            <div className={`flex flex-col gap-4 p-4 rounded-b-2xl  ${index % 2 === 0?"md:rounded-r-2xl md:rounded-bl-none":"md:rounded-l-2xl md:rounded-br-none"} max-w-[500px] bg-[#98b5e4]`}>
               <h3 className="text-xl font-semibold">{item.project_name}</h3>
               <p className="text-justify leading-6">
                 {item.project_description}
