@@ -1,106 +1,10 @@
 import { FaChevronUp } from "react-icons/fa6";
 import { FaChevronDown } from "react-icons/fa6";
 
-const Career = () => {
-  const experince_items = [
-    {
-      id: "1",
-      time: "2025-present",
-      title: "Founder & Full-Stack Developer",
-      company: "Personal Project",
-      description: [
-        {
-          id: "1",
-          description:
-            "Built an automated blog platform focused on AI and cybersecurity using Next.js (front-end & back-end)",
-        },
-        {
-          id: "2",
-          description:
-            "Integrated AI-driven content generation (via n8n pipeline, developed in collaboration).",
-        },
-        {
-          id: "3",
-          description:
-            "Developed a URL shortener tool to optimize content sharing on Twitter and other platforms.",
-        },
-        {
-          id: "4",
-          description:
-            "Automated publishing pipeline with daily posts and weekly/monthly reports.",
-        },
-      ],
-    },
-    {
-      id: "2",
-      time: "2025",
-      title: "Multi-City Weather Analyzer",
-      company: "Personal Project",
-      description: [
-        {
-          id: "1",
-          description:
-            "Analyzed 5-year weather data from Tehran, Qom, and Rasht using Python (Pandas, NumPy)",
-        },
-        {
-          id: "2",
-          description:
-            "Identified precipitation trends and intercity delay patterns",
-        },
-        {
-          id: "3",
-          description: "Visualized results with Matplotlib and Seaborn",
-        },
-      ],
-    },
-    {
-      id: "3",
-      time: "2024",
-      title: "Front-End Developer",
-      company: "Behrank",
-      description: [
-        {
-          id: "1",
-          description:
-            "Developed 14+ SEO-optimized, responsive pages with Elementor and custom CSS",
-        },
-        {
-          id: "2",
-          description:
-            "Collaborated with design team on idesign3d website for responsive UI and SEO improvements",
-        },
-        {
-          id: "3",
-          description:
-            "Improved UX and purchase flow with optimized component structure and clean architecture",
-        },
-      ],
-    },
-
-    {
-      id: "4",
-      time: "2023 – Present",
-      title: "Front-End Developer",
-      company: "Hydrogenous",
-      description: [
-        {
-          id: "1",
-          description:
-            "Migrated entire platform from legacy PHP to modern Next.js + PostgreSQL architecture",
-        },
-        {
-          id: "2",
-          description:
-            "Built and maintained user, admin, and client panels with JWT authentication and Zustand",
-        },
-        {
-          id: "3",
-          description:
-            "Improved UX and purchase flow with optimized component structure and clean architecture",
-        },
-      ],
-    },
-  ];
+const Career = async () => {
+  const res = await fetch("http://localhost:3000/api/experience");
+  let project_data = await res.json();
+  let experince_items = project_data.items;
   return (
     <div className="flex flex-row justify-center gap-24 my-10">
       <div className="flex flex-col items-center">
@@ -126,7 +30,7 @@ const Career = () => {
                 </ul>
                 <div className=" flex flex-col items-center absolute -left-28 top-10">
                   <p>{item.time}</p>
-                  <div className="w-[110px] h-[5px] bg-gray-500"></div>
+                  <div className="w-[110px] h-[3px] bg-gray-500"></div>
                 </div>
               </div>
             </div>
