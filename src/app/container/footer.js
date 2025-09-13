@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="flex flex-row items-center justify-between gap-2 px-6 py-4 bg-primary">
+    <div className="flex flex-row items-center justify-between gap-2 px-6 py-4 mt-4 bg-primary">
       <p>2025 | Developed️ by my self</p>
       <div className="flex flex-row items-center gap-4">
 

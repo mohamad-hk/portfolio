@@ -10,7 +10,7 @@ const Career = async () => {
     <div className="flex flex-row justify-center lg:gap-x-28 my-10">
       <div className="flex flex-col items-center">
         <FaChevronUp className="text-4xl" />
-        <div className="bg-gray-800 w-[3px] h-[160vh] sm:h-[150vh] md:h-[150vh] lg:h-[120vh] xl:h-[110vh]"></div>
+        <div className="bg-[#0077b6] w-[3px] h-[160vh] sm:h-[150vh] md:h-[150vh] lg:h-[120vh] xl:h-[110vh]"></div>
         <FaChevronDown className="text-4xl" />
       </div>
       <div className="flex flex-col justify-center items-center gap-14">

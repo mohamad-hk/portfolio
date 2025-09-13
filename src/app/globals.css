@@ -38,9 +38,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-site: #ffffff;
-  --color-primary: #c1d2ef;
-  --color-card: #FFFAFA;
+  --color-site: #c1d2ef;
+  --color-primary: #013a63;
+  --color-card: #001d3d;
   --color-text-body: #111111;
   --color-dark:#0f172;
   --color-button:#0070BB

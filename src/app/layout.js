@@ -1,3 +1,4 @@
+import Background from "./components/Background";
 import Footer from "./container/footer";
 import Header from "./container/header";
 import "./globals.css";
@@ -16,7 +17,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
-      <body className="bg-site">
+      <body className="relative text-white">
+        <Background/>
         <Header/>
         {children}
         <Footer/>

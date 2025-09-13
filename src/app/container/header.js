@@ -3,7 +3,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import { Sheet, SheetContent, SheetTrigger } from "@/app/components/ui/sheet";
 const Header = () => {
   return (
-    <div className=" flex flex-row justify-between items-center md:grid md:grid-cols-[100px_minmax(500px,1fr)] py-2 px-6 bg-primary">
+    <div className=" flex flex-row justify-between items-center md:grid md:grid-cols-[100px_minmax(500px,1fr)] py-2 px-6 mb-4 bg-primary">
       <img src="/images/logo.png" alt="image not found" className="w-[100px] h-[30px]" />
 
       <nav className=" hidden md:flex  flex-row items-center gap-10 place-self-center">
