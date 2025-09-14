@@ -3,7 +3,7 @@ import { LuMoveRight } from "react-icons/lu";
 
 const MoreInfo = () => {
   return (
-    <div className="w-[300px] text-justify">
+    <div className="md:w-[300px] text-justify">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ratione
         est sit, unde molestiae tempore numquam, nihil enim ipsam earum atque
