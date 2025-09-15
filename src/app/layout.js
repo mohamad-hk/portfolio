@@ -1,4 +1,4 @@
-import Background from "./components/Background";
+import Background from "./components/ui/Background";
 import Footer from "./container/footer";
 import Header from "./container/header";
 import "./globals.css";
