@@ -1,23 +1,13 @@
-import clientPromise from "@/app/lib/db";
-
-export const runtime = "nodejs";
+import pool from "@/app/lib/db";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const client = await clientPromise;
-    const db = client.db("portfolio");
-
-    const items = await db
-      .collection("experience")
-      .find({})
-      .toArray();
-
-    return Response.json({ items });
-  } catch (e) {
-    console.error("GET error:", e);
-    return Response.json(
-      { error: "Failed to fetch experience" },
-      { status: 500 }
+    const result = await pool.query(
+      "SELECT * FROM tbl_experience"
     );
+    return NextResponse.json({ data: result.rows }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

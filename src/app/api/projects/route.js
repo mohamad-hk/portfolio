@@ -1,24 +1,13 @@
-import clientPromise from "@/app/lib/db";
-
-export const runtime = "nodejs";
+import pool from "@/app/lib/db";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const client = await clientPromise;
-    const db = client.db("portfolio");
-
-    const items = await db
-      .collection("projects")
-      .find({})
-      .sort({ createdAt: -1 })
-      .toArray();
-
-    return Response.json({ items });
-  } catch (e) {
-    console.error("GET /api/projects error:", e);
-    return Response.json(
-      { error: "Failed to fetch projects" },
-      { status: 500 }
+    const result = await pool.query(
+      "SELECT * FROM tbl_projects"
     );
+    return NextResponse.json({ data: result.rows }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

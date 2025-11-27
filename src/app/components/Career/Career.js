@@ -5,7 +5,7 @@ import Experience from "./Experience";
 const Career = async () => {
   const res = await fetch("http://localhost:3000/api/experience");
   let project_data = await res.json();
-  let experince_items = project_data.items;
+  let experince_items = project_data.data;
   return (
     <div className="flex flex-row justify-center lg:gap-x-28 my-10">
       <div className="flex flex-col items-center">

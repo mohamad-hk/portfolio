@@ -32,11 +32,11 @@ const Experience = ({ item }) => {
     <div className="flex flex-col gap-10 w-[80vw] sm:w-[78vw] md:w-[85vw] lg:w-[80vw] max-w-[850px] experience_animation">
       <div className="flex flex-col gap-4 relative rounded-lg bg-card px-4 py-2 ">
         <h3 className="text-lg md:text-xl font-semibold pt-10 lg:pt-0">
-          {item.title}
+          {item.experience_title}
         </h3>
-        <h4 className="text-md md:text-lg font-semibold">@{item.company}</h4>
+        <h4 className="text-md md:text-lg font-semibold">@{item.experience_company}</h4>
         <ul className="px-8">
-          {item.description.map((item_description) => (
+          {item.experience_description.map((item_description) => (
             <li
               className="mb-2 list-disc text-sm md:text-base"
               key={item_description.id}
@@ -47,7 +47,7 @@ const Experience = ({ item }) => {
         </ul>
         <div className=" flex flex-row lg:flex-col items-center gap-x-6  absolute -left-7 lg:-left-32 top-4">
           <div className="w-[20px] h-[20px] bg-[#0077b6] rounded-full  lg:hidden"></div>
-          <span className="text-lg font-bold">{item.time}</span>
+          <span className="text-lg font-bold">{item.experience_time}</span>
           <div className="w-[110px] md:w-[127px] h-[3px] bg-[#0077b6] hidden lg:block"></div>
         </div>
       </div>
