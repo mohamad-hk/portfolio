@@ -1,19 +1,17 @@
+import { LucideGithub, LucideLinkedin } from "lucide-react";
 import Link from "next/link";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="flex flex-row items-center justify-between gap-2 px-6 py-4 mt-4 bg-primary">
-      <p>2025 | Developed️ by my self</p>
+    <div className="flex flex-row items-center justify-between gap-2 px-10 py-4 border-t-1 border-muted-foreground">
+      <p>2026 built with precisoin</p>
       <div className="flex flex-row items-center gap-4">
-
-      <Link href="#">
-        <FaLinkedin className="text-2xl" />
-      </Link>
-      <Link href="#">
-        <FaGithub className="text-2xl" />
-      </Link>
+        <Link href="#">
+          <LucideGithub className="text-2xl" />
+        </Link>
+        <Link href="#">
+          <LucideLinkedin className="text-2xl" />
+        </Link>
       </div>
     </div>
   );

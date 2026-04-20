@@ -1,37 +1,50 @@
 import Link from "next/link";
-import { IoMenuOutline } from "react-icons/io5";
-import { Sheet, SheetContent, SheetTrigger } from "@/app/components/ui/sheet";
+
+import HeaderScrollHandler from "../lib/HeaderScroll";
+import HeaderSm from "./headersm";
 const Header = () => {
+  const logo = "<dev/>";
   return (
-    <div className=" flex flex-row justify-between items-center md:grid md:grid-cols-[100px_minmax(500px,1fr)] py-2 px-6 mb-4 bg-primary">
-      <img src="/images/logo.png" alt="image not found" className="w-[100px] h-[30px]" />
+    <div
+      className="flex flex-row justify-between items-center py-3 px-6 md:px-20 border-b-2 border-muted-foreground/30 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-black/70 backdrop-blur-xl "
+      id="header_desktop"
+    >
+      <HeaderScrollHandler />
+      <p>{logo}</p>
 
-      <nav className=" hidden md:flex  flex-row items-center gap-10 place-self-center">
-        <Link href="#">About</Link>
-        <Link href="#">Projects</Link>
-        <Link href="#">Career</Link>
-        <Link href="#">Contact</Link>
+      <nav className=" hidden md:flex flex-row items-center gap-10 place-self-center">
+        <Link
+          href="#"
+          className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
+        >
+          Projects
+        </Link>
+        <Link
+          href="#"
+          className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
+        >
+          Stack
+        </Link>
+        <Link
+          href="#"
+          className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
+        >
+          Experience
+        </Link>
+        <Link
+          href="#"
+          className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
+        >
+          Contact
+        </Link>
+        <Link
+          href="#"
+          className="ring-muted-foreground/30 ring-[1px] rounded-lg px-6 py-2 transition-all duration-200 ease-in-out hover:ring-primary/50 hover:text-primary"
+        >
+          Resume
+        </Link>
       </nav>
-
-      <Sheet>
-        <SheetTrigger asChild className="hover:cursor-pointer md:hidden">
-          <IoMenuOutline className="text-2xl" />
-        </SheetTrigger>
-        <SheetContent className="p-2 pt-10">
-          <SheetTrigger asChild>
-            <Link href="#">About</Link>
-          </SheetTrigger>
-          <SheetTrigger asChild>
-            <Link href="#">Projects</Link>
-          </SheetTrigger>
-          <SheetTrigger asChild>
-            <Link href="#">Career</Link>
-          </SheetTrigger>
-          <SheetTrigger asChild>
-            <Link href="#">Contact</Link>
-          </SheetTrigger>
-        </SheetContent>
-      </Sheet>
+      <HeaderSm />
     </div>
   );
 };
