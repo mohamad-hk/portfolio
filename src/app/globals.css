@@ -25,13 +25,13 @@
   --color-border: var(--border);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
+  --color-accent: #1d2230;
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
+  --color-secondary-foreground: #b6bfc9;
+  --color-secondary: #191e29;
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
+  --color-primary: #30abe8;
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --radius-sm: calc(var(--radius) - 4px);
@@ -39,11 +39,12 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-site: #c1d2ef;
-  --color-primary: #013a63;
   --color-card: #001d3d;
   --color-text-body: #111111;
-  --color-dark:#0f172;
-  --color-button:#0070BB
+  --color-dark: #0f172;
+  --color-button: #0070bb;
+  --color-warning:#f49d25;
+  --color-success:#22c38e;
 }
 
 :root {
