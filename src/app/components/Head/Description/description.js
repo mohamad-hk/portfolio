@@ -1,12 +1,43 @@
+import { LucideArrowDown, LucideFileText, LucideMail } from "lucide-react";
 import Link from "next/link";
 
 const Description = () => {
   return (
-    <div className=" flex flex-col gap-6">
-      <p className="text-6xl">Hello.</p>
-      <p className="text-md"> I'am Mohamamd hossein karimi</p>
-      <p>Web developer</p>
-      <Link href="#">Downlaod CV</Link>
+    <div className=" flex flex-col items-center gap-6 mt-32 mb-8 ">
+      <p className="text-lg font-bold uppercase text-primary ">
+        Front-End Engineer
+      </p>
+      <p className="capitalize text-4xl lg:text-6xl text-center">Mohammad hossein karimi</p>
+      <div className=" w-[80%] md:w-[50%] mx-auto">
+        <p className="text-xl text-center text-muted-foreground">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+          delectus blanditiis voluptatem magnam ad vel? Consequuntur quo placeat
+          ad inventore?
+        </p>
+      </div>
+      <div className="flex flex-row flex-wrap items-center justify-center gap-4">
+        <Link
+          href="#"
+          className=" flex flex-row items-center gap-2 px-8 py-3 rounded-md text-black bg-primary transition-all duration-200 ease-in-out hover:brightness-110 hover:shadow-lg"
+        >
+          View Projects
+          <LucideArrowDown size={18} />
+        </Link>
+        <Link
+          href="#"
+          className=" flex flex-row items-center gap-2 px-8 py-3 bg-black rounded-md font-medium ring-muted-foreground/20 ring-1 transition-all duration-200 ease-in-out hover:text-primary hover:ring-primary"
+        >
+          <LucideMail size={18} />
+          Contact
+        </Link>
+        <Link
+          href="#"
+          className=" flex flex-row items-center gap-2 px-4 py-3 font-medium text-muted-foreground transition-all duration-200 ease-in-out rounded-md hover:bg-accent hover:text-white"
+        >
+          <LucideFileText size={18} />
+          Resume
+        </Link>
+      </div>
     </div>
   );
 };
