@@ -1,4 +1,3 @@
-import AboutMe from "./components/About/aboutMe";
 import Career from "./components/Career/Career";
 import ContactUs from "./components/Contact/form";
 import Head from "./components/Head/Head";
@@ -8,44 +7,31 @@ import BlurText from "./components/ui/BlurText";
 
 export default function App() {
   return (
-    <>
+    <main className=" flex flex-col gap-6">
       <Head />
+
       <BlurText
-        text="About me"
+        text="Technical Stack"
         delay={150}
         animateBy="letters"
         direction="top"
-        
         className="text-2xl mb-8"
       />
-      <AboutMe />
+      <Skills />
 
-        <BlurText
-        text="My Skills"
-        delay={150}
-        animateBy="letters"
-        direction="top"
-        
-        className="text-2xl mb-8"
-      />
-      <Skills/>
-
-
-        <BlurText
+      <BlurText
         text="My career"
         delay={150}
         animateBy="letters"
         direction="top"
-        
-        className="text-2xl mb-8"
+        className="  text-2xl mb-8"
       />
-      <Career/>
+      <Career />
       <BlurText
         text="My projects"
         delay={150}
         animateBy="letters"
         direction="top"
-        
         className="text-2xl mb-8"
       />
       <Projects />
@@ -54,10 +40,9 @@ export default function App() {
         delay={150}
         animateBy="letters"
         direction="top"
-        
         className="text-2xl mb-8"
       />
       <ContactUs />
-    </>
+    </main>
   );
 }

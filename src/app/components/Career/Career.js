@@ -1,5 +1,3 @@
-import { FaChevronUp } from "react-icons/fa6";
-import { FaChevronDown } from "react-icons/fa6";
 import Experience from "./Experience";
 
 const Career = async () => {
@@ -7,15 +5,15 @@ const Career = async () => {
   let project_data = await res.json();
   let experince_items = project_data.data;
   return (
-    <div className="flex flex-row justify-center lg:gap-x-28 my-10">
-      <div className="flex flex-col items-center">
-        <FaChevronUp className="text-4xl" />
-        <div className="bg-[#0077b6] w-[3px] h-[160vh] sm:h-[150vh] md:h-[150vh] lg:h-[120vh] xl:h-[110vh]"></div>
-        <FaChevronDown className="text-4xl" />
-      </div>
-      <div className="flex flex-col justify-center items-center gap-14">
-        {experince_items.map((item) => {
-          return <Experience item={item} />;
+    <div className="flex flex-row lg:gap-x-10 px-6 sm:px-20 md:px-40 py-10">
+      <div className="flex flex-col justify-center items-center">
+        {experince_items.map((item, index) => {
+          return (
+            <div className=" flex flex-row gap-10" key={index}>
+              <div className="w-[0.2px] h-full bg-muted-foreground"></div>
+              <Experience item={item} />
+            </div>
+          );
         })}
       </div>
     </div>

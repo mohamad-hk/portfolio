@@ -1,62 +1,30 @@
-"use client";
+import {
+  ExternalLink,
+  LucideArrowRight,
+  LucideCircleCheckBig,
+  LucideTriangleAlert,
+  SquareArrowOutUpRight,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { TbExternalLink } from "react-icons/tb";
-const Projects = () => {
-  const [project_data, setProjectData] = useState([]);
-  const [section, setSection] = useState("website");
-  const get_project_data = async () => {
-    const res = await fetch("http://localhost:3000/api/projects");
-    let project_data = await res.json();
-    console.log(project_data.data[0].project_technlogoies);
-
-    setProjectData(project_data.data);
-  };
-  useEffect(() => {
-    get_project_data();
-  }, []);
+const Projects = async () => {
+  const res = await fetch("http://localhost:3000/api/projects");
+  const project_data = await res.json();
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center  ">
-        <div className="flex flex-row justify-center items-center  gap-4   px-2 py-2 w-fit border-2 rounded-full">
-          <button
-            className={`w-[100px]  rounded-full py-1 hover:cursor-pointer ${
-              section === "website" ? "bg-button" : null
-            }`}
-            onClick={() => setSection("website")}
-          >
-            Website
-          </button>
-          <button
-            className={`w-[100px]  rounded-full py-1 hover:cursor-pointer ${
-              section === "ml" ? "bg-button" : null
-            }`}
-            onClick={() => setSection("ml")}
-          >
-            ML
-          </button>
-        </div>
-      </div>
-      <div
-        className={`${
-          section === "website" ? "flex" : "hidden"
-        } flex-col w-[90%] md:w-[90%] xl:w-[60%] mx-auto gap-y-6 my-10`}
-      >
-        {project_data?.map((item, index) => {
+      <div className="flex flex-col w-[90%] md:w-[90%] xl:w-[80%] mx-auto gap-y-20 sm:gap-y-10 lg:gap-y-20 ">
+        {project_data?.data.map((item, index) => {
           return (
             <div
               key={index}
-              className={`flex flex-col  mx-auto ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              className={`flex flex-col ${
+                index % 2 === 0
+                  ? "md:flex-row gap-10"
+                  : "md:flex-row-reverse gap-10"
               }`}
             >
-              <div
-                className={`bg-blue-300 p-4 md:max-w-[500px] flex flex-row justify-center items-center rounded-t-2xl md:rounded-t-none ${
-                  index % 2 === 0 ? "md:rounded-l-2xl" : "md:rounded-r-2xl"
-                } `}
-              >
+              <div className={` flex flex-row justify-center items-center `}>
                 <Image
                   src={item.project_demo}
                   width={400}
@@ -65,76 +33,43 @@ const Projects = () => {
                   className="rounded-md"
                 />
               </div>
-              <div
-                className={`flex flex-col gap-4 p-4 rounded-b-2xl  ${
-                  index % 2 === 0
-                    ? "md:rounded-r-2xl md:rounded-bl-none"
-                    : "md:rounded-l-2xl md:rounded-br-none"
-                } max-w-[500px] bg-card`}
-              >
-                <h3 className="text-xl font-semibold">{item.project_name}</h3>
+              <div className="flex flex-col gap-4">
+                <h3 className=" text-3xl md:text-xl font-semibold">{item.project_name}</h3>
                 <p className="text-justify leading-6">
                   {item.project_description}
                 </p>
-                <div className="flex flex-row flex-wrap gap-2">
-                  {item.project_technologies.map((item_technology) => {
-                    return (
-                      <div
-                        className="rounded-xl px-2 py-1 text-sm bg-gray-300 text-gray-700"
-                        key={item_technology.id}
-                      >
-                        {item_technology.technology_name}
-                      </div>
-                    );
-                  })}
-                </div>
-                <Link href={item.project_link}>
-                  <TbExternalLink className="text-2xl text-gray-300" />
-                </Link>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      {/* <div className={`${section==="ml"?"flex":"hidden"} flex flex-col w-[90%] md:w-[90%] xl:w-[60%] mx-auto gap-y-6 my-10`}>
 
-        {project_data?.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className={`flex flex-col  mx-auto ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
-            >
-              <div
-                className={`bg-blue-200 p-4 md:max-w-[500px] flex flex-row justify-center items-center rounded-t-2xl md:rounded-t-none ${
-                  index % 2 === 0 ? "md:rounded-l-2xl" : "md:rounded-r-2xl"
-                } `}
-              >
-                <Image
-                  src={item.project_demo}
-                  width={400}
-                  height={400}
-                  alt="image not found"
-                  className="rounded-md"
-                />
-              </div>
-              <div
-                className={`flex flex-col gap-4 p-4 rounded-b-2xl  ${
-                  index % 2 === 0
-                    ? "md:rounded-r-2xl md:rounded-bl-none"
-                    : "md:rounded-l-2xl md:rounded-br-none"
-                } max-w-[500px] bg-[#98b5e4]`}
-              >
-                <h3 className="text-xl font-semibold">{item.project_name}</h3>
-                <p className="text-justify leading-6">
-                  {item.project_description}
-                </p>
+                <div className="flex flex-col gap-3">
+                  <div className="flex flex-row gap-4 bg-accent rounded-lg p-2">
+                    <LucideTriangleAlert size={24} className="text-warning" />
+                    <div className="flex flex-col">
+                      <p className="text-warning uppercase text-sm font-bold">
+                        problem
+                      </p>
+                      <p className="text-muted-foreground">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Ea, odit?
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-row gap-4 bg-accent rounded-lg p-2">
+                    <LucideCircleCheckBig size={24} className="text-success" />
+                    <div className="flex flex-col">
+                      <p className="text-success uppercase text-sm font-bold">
+                        solutoin
+                      </p>
+                      <p className="text-muted-foreground">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Ea, odit?
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 <div className="flex flex-row flex-wrap gap-2">
                   {item.project_technologies.map((item_technology) => {
                     return (
                       <div
-                        className="rounded-xl px-2 py-1 text-sm bg-gray-300 text-gray-700"
+                        className="rounded-xl px-4 py-1 text-sm bg-secondary font-semibold text-secondary-foreground transition-all duration-300 ease-in-out hover:bg-accent/80"
                         key={item_technology.id}
                       >
                         {item_technology.technology_name}
@@ -142,14 +77,27 @@ const Projects = () => {
                     );
                   })}
                 </div>
-                <Link href={item.project_link}>
-                  <TbExternalLink className="text-2xl text-gray-300" />
-                </Link>
+                <div className="flex flex-row gap-4">
+                  <Link
+                    href={item.project_link}
+                    className="flex flex-row items-center gap-4 px-6 py-3 rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all duration-200 ease-in-out hover:text-primary hover:ring-primary"
+                  >
+                    <p className="capitalize">live website</p>
+                    <SquareArrowOutUpRight size={20} />
+                  </Link>
+                  <Link
+                    href={item.project_link}
+                    className="flex flex-row items-center gap-4 px-6 py-3 text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
+                  >
+                    <p className="capitalize">read case study</p>
+                    <LucideArrowRight />
+                  </Link>
+                </div>
               </div>
             </div>
           );
         })}
-      </div> */}
+      </div>
     </>
   );
 };
