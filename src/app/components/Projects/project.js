@@ -20,11 +20,11 @@ const Projects = async () => {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 0
-                  ? "md:flex-row gap-10"
-                  : "md:flex-row-reverse gap-10"
+                  ? "md:flex-row gap-10 justify-center items-start"
+                  : "md:flex-row-reverse gap-10 justify-center items-start"
               }`}
             >
-              <div className={` flex flex-row justify-center items-center `}>
+              <div className="flex flex-row justify-center items-center">
                 <Image
                   src={item.project_demo}
                   width={400}
@@ -33,34 +33,41 @@ const Projects = async () => {
                   className="rounded-md"
                 />
               </div>
-              <div className="flex flex-col gap-4">
-                <h3 className=" text-3xl md:text-xl font-semibold">{item.project_name}</h3>
+              <div className="flex flex-col gap-4 max-w-3xl">
+                <h3 className=" text-3xl md:text-xl font-semibold">
+                  {item.project_name}
+                </h3>
                 <p className="text-justify leading-6">
                   {item.project_description}
                 </p>
 
                 <div className="flex flex-col gap-3">
-                  <div className="flex flex-row gap-4 bg-accent rounded-lg p-2">
-                    <LucideTriangleAlert size={24} className="text-warning" />
+                  <div className="flex flex-row  gap-4 bg-accent rounded-lg p-2">
+                    <div>
+                      <LucideTriangleAlert size={24} className="text-warning" />
+                    </div>
                     <div className="flex flex-col">
                       <p className="text-warning uppercase text-sm font-bold">
                         problem
                       </p>
                       <p className="text-muted-foreground">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Ea, odit?
+                        {item.project_problem}
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-row gap-4 bg-accent rounded-lg p-2">
-                    <LucideCircleCheckBig size={24} className="text-success" />
+                    <div>
+                      <LucideCircleCheckBig
+                        size={24}
+                        className="text-success"
+                      />
+                    </div>
                     <div className="flex flex-col">
                       <p className="text-success uppercase text-sm font-bold">
                         solutoin
                       </p>
                       <p className="text-muted-foreground">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Ea, odit?
+                        {item.project_solution}
                       </p>
                     </div>
                   </div>
@@ -86,7 +93,7 @@ const Projects = async () => {
                     <SquareArrowOutUpRight size={20} />
                   </Link>
                   <Link
-                    href={item.project_link}
+                    href={`/projects/${item.project_name}`}
                     className="flex flex-row items-center gap-4 px-6 py-3 text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
                   >
                     <p className="capitalize">read case study</p>

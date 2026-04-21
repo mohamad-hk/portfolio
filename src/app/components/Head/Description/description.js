@@ -10,9 +10,8 @@ const Description = () => {
       <p className="capitalize text-4xl lg:text-6xl text-center">Mohammad hossein karimi</p>
       <div className=" w-[80%] md:w-[50%] mx-auto">
         <p className="text-xl text-center text-muted-foreground">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-          delectus blanditiis voluptatem magnam ad vel? Consequuntur quo placeat
-          ad inventore?
+I build fast, scalable, and production-ready web applications using Next.js and modern full-stack architecture.  
+Specialized in transforming legacy systems into high-performance platforms with optimized UX and clean, maintainable code.
         </p>
       </div>
       <div className="flex flex-row flex-wrap items-center justify-center gap-4">
