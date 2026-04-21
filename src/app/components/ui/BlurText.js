@@ -22,6 +22,7 @@ const BlurText = ({
   rootMargin = '0px',
   animationFrom,
   animationTo,
+  id,
   easing = t => t,
   onAnimationComplete,
   stepDuration = 0.35
@@ -72,7 +73,7 @@ const BlurText = ({
   const times = Array.from({ length: stepCount }, (_, i) => (stepCount === 1 ? 0 : i / (stepCount - 1)));
 
   return (
-    <div ref={ref} className={`blur-text ${className} flex justify-center flex-wrap lg:text-4xl`}>
+    <div ref={ref} className={`blur-text ${className} flex justify-center flex-wrap lg:text-4xl`} id={id}>
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
 
