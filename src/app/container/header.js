@@ -10,39 +10,40 @@ const Header = () => {
       id="header_desktop"
     >
       <HeaderScrollHandler />
-      <p>{logo}</p>
+      <Link href={"#"}>{logo}</Link>
 
       <nav className=" hidden md:flex flex-row items-center gap-10 place-self-center">
         <Link
-          href="#"
+          href="#projects"
           className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
         >
           Projects
         </Link>
         <Link
-          href="#"
+          href="#stack"
           className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
         >
           Stack
         </Link>
         <Link
-          href="#"
+          href="#experience"
           className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
         >
           Experience
         </Link>
         <Link
-          href="#"
+          href="#contact"
           className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
         >
           Contact
         </Link>
-        <Link
-          href="#"
+        <a
+          href="/resume.pdf"
+          download="MohammadHosseinKarimi_CV.pdf"
           className="ring-muted-foreground/30 ring-[1px] rounded-lg px-6 py-2 transition-all duration-200 ease-in-out hover:ring-primary/50 hover:text-primary"
         >
           Resume
-        </Link>
+        </a>
       </nav>
       <HeaderSm />
     </div>

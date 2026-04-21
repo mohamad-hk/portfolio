@@ -16,6 +16,7 @@ export default function App() {
         animateBy="letters"
         direction="top"
         className="text-2xl mb-8"
+        id="stack"
       />
       <Skills />
 
@@ -25,6 +26,7 @@ export default function App() {
         animateBy="letters"
         direction="top"
         className="  text-2xl mb-8"
+        id="experience"
       />
       <Career />
       <BlurText
@@ -33,6 +35,7 @@ export default function App() {
         animateBy="letters"
         direction="top"
         className="text-2xl mb-8"
+        id="projects"
       />
       <Projects />
       <BlurText
@@ -41,6 +44,7 @@ export default function App() {
         animateBy="letters"
         direction="top"
         className="text-2xl mb-8"
+        id="contact"
       />
       <ContactUs />
     </main>
