@@ -1,3 +1,5 @@
+import { Gallery } from "@/app/components/project/Gallery";
+import ProblemAndSolution from "@/app/components/project/Problem&solution";
 import {
   ArrowLeft,
   ArrowRight,
@@ -5,6 +7,7 @@ import {
   SquareArrowOutUpRight,
 } from "lucide-react";
 import Link from "next/link";
+
 const CaseStudyProject = async ({ params }) => {
   const input = await params;
   const res = await fetch(
@@ -14,6 +17,15 @@ const CaseStudyProject = async ({ params }) => {
   const project_detail_data = project_data.data;
   const primary_result = project_detail_data.primary_result;
   const secondary_result = project_detail_data.secondary_result;
+  const projects = ["hydrogenous", "irancsta", "privatekernel"];
+
+  const currentIndex = projects.findIndex(
+    (item) => item === primary_result.project_name.toLowerCase()
+  );
+
+  const nextProject = projects[currentIndex + 1];
+  const prevProject = projects[currentIndex - 1];
+
   return (
     <div className="pt-24">
       <section className="pb-16 px-6">
@@ -60,38 +72,6 @@ const CaseStudyProject = async ({ params }) => {
 
       <section className="pb-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-2xl font-bold mb-6">
-            Problem & Solutions
-          </h2>
-          <div className="grid grid-cols-2">
-            <ul className="flex flex-col gap-2">
-              {secondary_result.p_d_problem.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className="flex flex-col gap-2">
-              {secondary_result.p_d_solution.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">Tech Stack</h2>
           <div className="flex flex-row gap-2">
             {primary_result.project_technologies.map((item_technology) => {
@@ -107,6 +87,7 @@ const CaseStudyProject = async ({ params }) => {
           </div>
         </div>
       </section>
+      <ProblemAndSolution secondaryResult={secondary_result} />
 
       <section className="pb-20 px-6">
         <div className="max-w-4xl mx-auto">
@@ -133,24 +114,32 @@ const CaseStudyProject = async ({ params }) => {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="rounded-xl border border-border overflow-hidden "></div>
           </div>
+          <Gallery/>
         </div>
       </section>
 
       <section className="pb-32 px-6">
-        {/* <div className="max-w-4xl mx-auto flex justify-between items-center border-t border-border pt-8">
-          <Link
-            to="/#projects"
-            className="text-sm text-muted-foreground hover:transition-colors inline-flex items-center gap-2"
-          >
-            <ArrowLeft size={14} /> All Projects
-          </Link>
-          <Link
-            to={`/projects/${nextProject.slug}`}
-            className="text-sm text-primary hover:transition-colors inline-flex items-center gap-2"
-          >
-            {nextProject.title} <ArrowRight size={14} />
-          </Link>
-        </div> */}
+        <div className="max-w-4xl mx-auto flex justify-between items-center border-t border-border pt-8">
+          {prevProject === undefined ? <div /> : ""}
+          {prevProject !== undefined && (
+            <Link
+              href={`/projects/${prevProject}`}
+              className="text-sm text-muted-foreground hover:transition-colors inline-flex items-center gap-2"
+            >
+              <ArrowLeft size={14} /> {prevProject}
+            </Link>
+          )}
+
+          {nextProject !== undefined && (
+            <Link
+              href={`/projects/${nextProject}`}
+              className="text-sm text-primary hover:transition-colors inline-flex items-center gap-2"
+            >
+              {nextProject} <ArrowRight size={14} />
+            </Link>
+          )}
+          {nextProject === undefined ? <div /> : ""}
+        </div>
       </section>
     </div>
   );
