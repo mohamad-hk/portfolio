@@ -114,7 +114,7 @@ const CaseStudyProject = async ({ params }) => {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="rounded-xl border border-border overflow-hidden "></div>
           </div>
-          <Gallery/>
+          <Gallery Images={secondary_result.p_d_gallery}/>
         </div>
       </section>
 
