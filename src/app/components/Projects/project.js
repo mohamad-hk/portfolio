@@ -25,12 +25,13 @@ const Projects = async () => {
               }`}
             >
               <div className="flex flex-row justify-center items-center">
-                <Image
+                <video
                   src={item.project_demo}
-                  width={400}
-                  height={400}
-                  alt="image not found"
-                  className="rounded-md"
+                  autoPlay
+                  loop
+                  playsInline
+                  controls={false}
+                  className="max-w-md pointer-events-none "
                 />
               </div>
               <div className="flex flex-col gap-4 max-w-3xl">
