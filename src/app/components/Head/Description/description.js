@@ -7,11 +7,15 @@ const Description = () => {
       <p className="text-lg font-bold uppercase text-primary ">
         Front-End Engineer
       </p>
-      <p className="capitalize text-4xl lg:text-6xl text-center">Mohammad hossein karimi</p>
+      <p className="capitalize text-4xl lg:text-6xl text-center">
+        Mohammad hossein karimi
+      </p>
       <div className=" w-[80%] md:w-[50%] mx-auto">
         <p className="text-xl text-center text-muted-foreground">
-I build fast, scalable, and production-ready web applications using Next.js and modern full-stack architecture.  
-Specialized in transforming legacy systems into high-performance platforms with optimized UX and clean, maintainable code.
+          I build fast, scalable, and production-ready web applications using
+          Next.js and modern full-stack architecture. Specialized in
+          transforming legacy systems into high-performance platforms with
+          optimized UX and clean, maintainable code.
         </p>
       </div>
       <div className="flex flex-row flex-wrap items-center justify-center gap-4">
@@ -30,7 +34,8 @@ Specialized in transforming legacy systems into high-performance platforms with 
           Contact
         </Link>
         <Link
-          href="#"
+          href="/resume.pdf"
+          download="MohammadHosseinKarimi_CV.pdf"
           className=" flex flex-row items-center gap-2 px-4 py-3 font-medium text-muted-foreground transition-all duration-200 ease-in-out rounded-md hover:bg-accent hover:text-white"
         >
           <LucideFileText size={18} />
