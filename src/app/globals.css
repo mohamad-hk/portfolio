@@ -39,12 +39,13 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-site: #c1d2ef;
-  --color-card: #001d3d;
+  --color-card: #121621;
   --color-text-body: #111111;
   --color-dark: #0f172;
   --color-button: #0070bb;
   --color-warning:#f49d25;
   --color-success:#22c38e;
+  --color-border:#272b35;
 }
 
 :root {
