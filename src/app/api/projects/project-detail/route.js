@@ -11,7 +11,7 @@ export async function GET(req) {
     );
     const param = result.rows[0].project_id;
     const result2 = await pool.query(
-      ` SELECT p_d_background, p_d_problem, p_d_solution, p_d_gallery, p_d_subtitle,p_d_role,p_d_time from tbl_project_detail WHERE fk_id=$1 ;`,
+      ` SELECT p_d_background, p_d_problem, p_d_solution, p_d_gallery, p_d_subtitle,p_d_role,p_d_time,p_d_improvments from tbl_project_detail WHERE fk_id=$1 ;`,
       [param]
     );
     return NextResponse.json({
