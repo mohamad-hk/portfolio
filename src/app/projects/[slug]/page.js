@@ -92,18 +92,18 @@ const CaseStudyProject = async ({ params }) => {
       <section className="pb-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">
-            Outcomes & Impact
+             Improvements
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
-            {/* {project.outcomes.map((o, i) => (
+            {secondary_result.p_d_improvments.map((item, index) => (
               <div
-                key={i}
+                key={index}
                 className="p-5 rounded-xl bg-card border border-border flex gap-3 items-start"
               >
                 <span className="text-success text-lg leading-none">✓</span>
-                <p className="text-sm text-muted-foreground">{o}</p>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
-            ))} */}
+            ))}
           </div>
         </div>
       </section>
