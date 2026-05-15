@@ -27,9 +27,9 @@ const CaseStudyProject = async ({ params }) => {
   const prevProject = projects[currentIndex - 1];
 
   return (
-    <div className="pt-24">
+    <div className=" w-[90%] mx-auto pt-24">
       <section className="pb-16 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="">
           {/* <Link
             to="/#projects"
             className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 mb-8"
@@ -62,7 +62,7 @@ const CaseStudyProject = async ({ params }) => {
       </section>
 
       <section className="pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className=" mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">Background</h2>
           <p className="text-muted-foreground leading-relaxed">
             {secondary_result.p_d_background}
@@ -71,7 +71,7 @@ const CaseStudyProject = async ({ params }) => {
       </section>
 
       <section className="pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className=" mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">Tech Stack</h2>
           <div className="flex flex-row gap-2">
             {primary_result.project_technologies.map((item_technology) => {
@@ -88,38 +88,41 @@ const CaseStudyProject = async ({ params }) => {
         </div>
       </section>
       <ProblemAndSolution secondaryResult={secondary_result} />
-
-      <section className="pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-2xl font-bold mb-6">
-             Improvements
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {secondary_result.p_d_improvments.map((item, index) => (
-              <div
-                key={index}
-                className="p-5 rounded-xl bg-card border border-border flex gap-3 items-start"
-              >
-                <span className="text-success text-lg leading-none">✓</span>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
+      {secondary_result.p_d_improvments && (
+        <section className="pb-20 px-6">
+          <div className=" mx-auto">
+            <h2 className="font-display text-2xl font-bold mb-6">
+              Improvements
+            </h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {secondary_result?.p_d_improvments.map((item, index) => (
+                <div
+                  key={index}
+                  className="p-5 rounded-xl bg-card border border-border flex gap-3 items-start"
+                >
+                  <span className="text-success text-lg leading-none">✓</span>
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className=" mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">Gallery</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="rounded-xl border border-border overflow-hidden "></div>
           </div>
-          <Gallery Images={secondary_result.p_d_gallery}/>
+          <Gallery Images={secondary_result.p_d_gallery} />
         </div>
       </section>
 
       <section className="pb-32 px-6">
-        <div className="max-w-4xl mx-auto flex justify-between items-center border-t border-border pt-8">
+        <div className=" mx-auto flex justify-between items-center border-t border-border pt-8">
           {prevProject === undefined ? <div /> : ""}
           {prevProject !== undefined && (
             <Link
