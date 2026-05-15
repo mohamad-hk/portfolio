@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "0.1.0",
+  "version": "1.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,13 +12,9 @@
     "@radix-ui/react-dialog": "^1.1.15",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.3.0",
-    "aos": "^3.0.0-beta.6",
+    "aos": "^2.3.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "embla-carousel": "^8.6.0",
-    "embla-carousel-autoplay": "^8.6.0",
-    "embla-carousel-react": "^8.6.0",
-    "framer-motion": "^12.23.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.542.0",
     "motion": "^12.23.12",
