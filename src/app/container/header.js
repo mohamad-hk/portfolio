@@ -10,7 +10,7 @@ const Header = () => {
       id="header_desktop"
     >
       <HeaderScrollHandler />
-      <Link href={"#"}>{logo}</Link>
+      <Link href={"/"}>{logo}</Link>
 
       <nav className=" hidden md:flex flex-row items-center gap-10 place-self-center">
         <Link
@@ -20,19 +20,19 @@ const Header = () => {
           Projects
         </Link>
         <Link
-          href="#stack"
+          href="/#stack"
           className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
         >
           Stack
         </Link>
         <Link
-          href="#experience"
+          href="/#experience"
           className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
         >
           Experience
         </Link>
         <Link
-          href="#contact"
+          href="/#contact"
           className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white"
         >
           Contact
