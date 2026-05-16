@@ -1,7 +1,9 @@
 import Experience from "./Experience";
 
 const Career = async () => {
-  const res = await fetch(`${process.env.API_BASE_URL}/api/experience`);
+  const res = await fetch(`${process.env.API_BASE_URL}/api/experience`, {
+    cache: "no-store",
+  });
   let project_data = await res.json();
   let experince_items = project_data.data;
   return (

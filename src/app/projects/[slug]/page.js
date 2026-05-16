@@ -11,7 +11,10 @@ import Link from "next/link";
 const CaseStudyProject = async ({ params }) => {
   const input = await params;
   const res = await fetch(
-    `${process.env.API_BASE_URL}/api/projects/project-detail?slug=${input.slug}`
+    `${process.env.API_BASE_URL}/api/projects/project-detail?slug=${input.slug}`,
+    {
+      cache: "no-store",
+    }
   );
   const project_data = await res.json();
   const project_detail_data = project_data.data;

@@ -6,8 +6,10 @@ import Skills from "./components/Skills/Skills";
 import BlurText from "./components/ui/BlurText";
 
 export default async function App() {
-    const res = await fetch(`${process.env.API_BASE_URL}/api/projects`);
-    const project_data = await res.json();
+  const res = await fetch(`${process.env.API_BASE_URL}/api/projects`, {
+    cache: "no-store",
+  });
+  const project_data = await res.json();
   return (
     <main className=" flex flex-col gap-6">
       <Head />
