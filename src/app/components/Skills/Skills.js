@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const Skills = async () => {
-  const res = await fetch("http://localhost:3000/api/skills", {
+  const res = await fetch(`${process.env.API_BASE_URL}/api/skills`, {
     cache: "no-store",
   });
 
