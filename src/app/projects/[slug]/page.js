@@ -76,7 +76,7 @@ const CaseStudyProject = async ({ params }) => {
       <section className="pb-20 px-6">
         <div className=" mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">Tech Stack</h2>
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-wrap gap-2">
             {primary_result.project_technologies.map((item_technology) => {
               return (
                 <div

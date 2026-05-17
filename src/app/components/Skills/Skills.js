@@ -8,7 +8,7 @@ const Skills = async () => {
   const data = await res.json();
 
   return (
-    <div className="flex flex-col justify-center items-center  px-20 py-32">
+    <div className="flex flex-col justify-center items-center  sm:px-20  sm:py-32">
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-[90%]">
         {data.map((category) => (
           <div className="bg-secondary/90 p-4 rounded-xl" key={category.id}>

@@ -43,7 +43,7 @@ export default async function App() {
       />
       <Projects project_data={project_data} />
       <BlurText
-        text="Get in touch"
+        text="Let's build something"
         delay={150}
         animateBy="letters"
         direction="top"
