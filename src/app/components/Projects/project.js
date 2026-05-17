@@ -14,7 +14,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = ({ project_data }) => {
-
   useEffect(() => {
     const cards = gsap.utils.toArray(".project-card");
 
@@ -55,21 +54,17 @@ const Projects = ({ project_data }) => {
             key={index}
             className={`project-card flex flex-col ${
               index % 2 === 0
-                ? "md:flex-row gap-10 justify-center items-start"
-                : "md:flex-row-reverse gap-10 justify-center items-start"
+                ? "md:flex-row gap-10 justify-center items-center"
+                : "md:flex-row-reverse gap-10 justify-center items-center"
             }`}
           >
-            <div className="flex flex-row justify-center items-center">
-              <video
-                src={item.project_demo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls={false}
-                className="max-w-md pointer-events-none"
-              />
-            </div>
+            <video
+              src={item.project_demo}
+              autoPlay
+              loop
+              controls={false}
+              className="max-w-md pointer-events-none"
+            />
 
             <div className="flex flex-col gap-4 max-w-3xl">
               <h3 className="text-3xl md:text-xl font-semibold">
@@ -99,10 +94,7 @@ const Projects = ({ project_data }) => {
 
                 <div className="flex flex-row gap-4 bg-accent rounded-lg p-2">
                   <div>
-                    <LucideCircleCheckBig
-                      size={24}
-                      className="text-success"
-                    />
+                    <LucideCircleCheckBig size={24} className="text-success" />
                   </div>
 
                   <div className="flex flex-col">
@@ -130,7 +122,7 @@ const Projects = ({ project_data }) => {
                 })}
               </div>
 
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-row flex-wrap justify-center sm:justify-stretch gap-4">
                 <Link
                   href={item.project_link}
                   className="flex flex-row items-center gap-4 px-6 py-3 rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all duration-200 ease-in-out hover:text-primary hover:ring-primary"
