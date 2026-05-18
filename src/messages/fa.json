@@ -1,0 +1,38 @@
+{
+  "header": {
+    "projects": "پروژه‌ها",
+    "stack": "مهارت‌ها",
+    "experience": "تجربه‌ها",
+    "contact": "تماس",
+    "resume": "رزومه"
+  },
+
+  "home": {
+    "intro": "سلام اسم من هست",
+    "fullname": "محمد حسین کریمی",
+    "subintro": "و بسیار علاقه مند به توسعه وب هستم",
+    "resume": "رزومه",
+    "view projects": "دیدن پروژه ها",
+    "contact": "ارتباط با من",
+    "live website": "دیدن سایت",
+    "read case study": "مشاهده کیس استادی",
+    "problem": "مشکل",
+    "solution": "راه حل",
+    "technicalStack": "تکنولوژی‌ ها",
+    "career": "مسیر حرفه‌ای من",
+    "projects": "پروژه‌های من",
+    "cta": "بیایید چیزی بسازیم",
+    "cta-description": "آماده همکاری در موقعیت های تمام وقت،  پاروه وقت،  هیبرید و پروژه ای"
+  },
+  "project": {
+    "live website": "دیدن سایت",
+    "background": "مقدمه",
+    "tech stack": "تکنولوژی های بکار رفته",
+    "problem & solutions": "مشکلات و راه حل ها",
+    "improvements": "بهبود ها",
+    "gallery": "تصاویر"
+  },
+  "footer": {
+    "description": "طراحی و توسعه با عشق توسط خودم"
+  }
+}
