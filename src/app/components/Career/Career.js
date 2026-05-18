@@ -1,7 +1,7 @@
 import Experience from "./Experience";
 
-const Career = async () => {
-  const res = await fetch(`${process.env.API_BASE_URL}/api/experience`, {
+const Career = async ({locale}) => {
+  const res = await fetch(`${process.env.API_BASE_URL}/api/experience?locale=${locale}`, {
     cache: "no-store",
   });
   let project_data = await res.json();

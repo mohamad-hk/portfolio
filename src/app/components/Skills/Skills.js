@@ -1,9 +1,12 @@
 import Image from "next/image";
 
-const Skills = async () => {
-  const res = await fetch(`${process.env.API_BASE_URL}/api/skills`, {
-    cache: "no-store",
-  });
+const Skills = async ({ locale }) => {
+  const res = await fetch(
+    `${process.env.API_BASE_URL}/api/skills?locale=${locale}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   const data = await res.json();
 
