@@ -7,7 +7,7 @@ import { Dot } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Experience = ({ item }) => {
+const Experience = ({ item,locale }) => {
   useEffect(() => {
     gsap.utils.toArray(".experience_animation").forEach((el) => {
       gsap.fromTo(
@@ -31,7 +31,11 @@ const Experience = ({ item }) => {
 
   return (
     <div className="flex flex-col w-[80vw] sm:w-[78vw] md:w-[85vw] lg:w-[50vw] max-w-[850px] experience_animation relative pb-14">
-      <Dot className="absolute -left-15 text-primary -top-2 " size={40} />
+      {locale === "fa" ? (
+        <Dot className="absolute -right-15 text-primary -top-2 " size={40} />
+      ) : (
+        <Dot className="absolute -left-15 text-primary -top-2 " size={40} />
+      )}
       <div className="flex flex-col  gap-1 relative rounded-lg ">
         <span className="text-medium text-muted-foreground">
           {item.experience_time}

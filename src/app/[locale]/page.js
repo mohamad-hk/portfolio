@@ -11,7 +11,7 @@ export default async function App({ params }) {
   const translated_content = await getTranslations("home");
   return (
     <main className=" flex flex-col gap-6">
-      <Head />
+      <Head locale={locale} />
 
       <BlurText
         text={translated_content("technicalStack")}

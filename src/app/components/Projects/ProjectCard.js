@@ -14,7 +14,7 @@ import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectsCard = ({ project_data }) => {
+const ProjectsCard = ({ project_data,locale }) => {
   const translated_content = useTranslations("home");
 
   useEffect(() => {
@@ -136,12 +136,14 @@ const ProjectsCard = ({ project_data }) => {
                 </Link>
 
                 <Link
-                  href={`/projects/${item.project_name}`}
+                  href={locale === "fa" ? `/fa/projects/${item.project_name}` : `/en/projects/${item.project_name}`}
                   className="flex flex-row items-center gap-4 px-6 py-3 capitalize text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
                 >
                   {translated_content("read case study")}
+                  {
+                    locale==="en" ? <LucideArrowRight size={20} /> : <LucideArrowRight size={20} className="rotate-180" />
+                  }
 
-                  <LucideArrowRight />
                 </Link>
               </div>
             </div>

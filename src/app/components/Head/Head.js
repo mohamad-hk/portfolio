@@ -4,7 +4,7 @@ import ProfileImage from "./ProfileImage/pfp";
 import { LucideArrowDown, LucideFileText, LucideMail } from "lucide-react";
 import Link from "next/link";
 
-const Head = async () => {
+const Head = async ({ locale }) => {
   const translated_content = await getTranslations("home");
 
   return (
@@ -15,14 +15,14 @@ const Head = async () => {
       </div>
       <div className="flex flex-row flex-wrap items-center justify-center gap-4">
         <Link
-          href="/#projects"
+          href={locale === "fa" ? "/fa#projects" : "/en/#projects"}
           className=" flex flex-row items-center gap-2 px-8 py-3 rounded-md text-black bg-primary transition-all duration-200 ease-in-out hover:brightness-110 hover:shadow-lg"
         >
           {translated_content("view projects")}
           <LucideArrowDown size={18} />
         </Link>
         <Link
-          href="/#contact"
+          href={locale === "fa" ? "/fa#contact" : "/en/#contact"}
           className=" flex flex-row items-center gap-2 px-8 py-3 bg-black rounded-md font-medium ring-muted-foreground/20 ring-1 transition-all duration-200 ease-in-out hover:text-primary hover:ring-primary"
         >
           <LucideMail size={18} />
