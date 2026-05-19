@@ -8,6 +8,7 @@ import { hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { enFont, faFont } from "@/app/fonts";
 
 export const metadata = {
   title: "Mohammad hossein karimi | full stack web developer",
@@ -26,8 +27,18 @@ export default async function RootLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
-      <body className="relative text-white">
+    <html
+      lang={locale}
+      dir={locale === "fa" ? "rtl" : "ltr"}
+      className={`${enFont.variable} ${faFont.variable}`}
+    >
+      <body
+        className={`relative text-white ${
+          locale === "en"
+            ? "[font-family:var(--font-en)]"
+            : "[font-family:var(--font-fa)]"
+        }`}
+      >
         <NextIntlClientProvider messages={messages}>
           <Background />
           <Header />
