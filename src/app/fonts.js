@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 
 export const enFont = localFont({
-  src: "../fonts/Manrope.ttf",
+  src: "../fonts/Manrope.woff2",
   variable: "--font-en",
   display: "swap",
 });
