@@ -10,7 +10,9 @@ const CaseStudyProject = async ({ params }) => {
   const res = await fetch(
     `${process.env.API_BASE_URL}/api/projects/project-detail?slug=${input.slug}&locale=${input.locale}`,
     {
-      cache: "no-store",
+      next: {
+        revalidate: 604800,
+      },
     }
   );
   const project_data = await res.json();

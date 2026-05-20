@@ -4,7 +4,9 @@ const Skills = async ({ locale }) => {
   const res = await fetch(
     `${process.env.API_BASE_URL}/api/skills?locale=${locale}`,
     {
-      cache: "no-store",
+      next: {
+        revalidate: 604800,
+      },
     }
   );
 
