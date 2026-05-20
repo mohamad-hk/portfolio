@@ -1,0 +1,40 @@
+{
+  "header": {
+    "projects": "Projects",
+    "stack": "Skills",
+    "experience": "Experience",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+
+  "home": {
+    "intro": "Hey, my name is",
+    "fullname": "Mohammad Hossein Karimi",
+    "subintro": "and I am highly passionate about web development",
+    "resume": "Resume",
+    "view projects": "View Projects",
+    "contact": "Contact Me",
+    "live website": "Visit Website",
+    "read case study": "Read Case Study",
+    "problem": "Problem",
+    "solution": "Solution",
+    "technicalStack": "Technologies",
+    "career": "My Career",
+    "projects": "My Projects",
+    "cta": "Let's Build Something",
+    "cta-description": "Available for full-time, part-time, hybrid, and freelance collaborations"
+  },
+
+  "project": {
+    "live website": "Visit Website",
+    "background": "Background",
+    "tech stack": "Tech Stack",
+    "problem & solutions": "Problems & Solutions",
+    "improvements": "Improvements",
+    "gallery": "Gallery"
+  },
+
+  "footer": {
+    "description": "Designed and developed with passion by myself"
+  }
+}

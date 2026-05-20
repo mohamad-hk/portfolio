@@ -4,8 +4,11 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AlertTriangle, CheckCircle2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const ProblemAndSolution = ({ secondaryResult }) => {
+    const translated_content = useTranslations("project");
+
   const sectionRef = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -44,7 +47,7 @@ const ProblemAndSolution = ({ secondaryResult }) => {
     <section ref={sectionRef} className="pb-20 px-6 overflow-x-hidden">
       <div>
         <h2 className="font-display text-2xl font-bold mb-8 text-white">
-          Problem & Solutions
+          {translated_content("problem & solutions")}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

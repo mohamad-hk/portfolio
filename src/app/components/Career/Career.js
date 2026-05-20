@@ -1,9 +1,12 @@
 import Experience from "./Experience";
 
-const Career = async () => {
-  const res = await fetch(`${process.env.API_BASE_URL}/api/experience`, {
-    cache: "no-store",
-  });
+const Career = async ({ locale }) => {
+  const res = await fetch(
+    `${process.env.API_BASE_URL}/api/experience?locale=${locale}`,
+    {
+      cache: "no-store",
+    }
+  );
   let project_data = await res.json();
   let experince_items = project_data.data;
   return (
@@ -11,9 +14,9 @@ const Career = async () => {
       <div className="flex flex-col justify-center items-center">
         {experince_items.map((item, index) => {
           return (
-            <div className=" flex flex-row gap-10" key={index}>
+            <div className=" flex gap-10" key={index}>
               <div className="w-[0.2px] h-full bg-muted-foreground"></div>
-              <Experience item={item} />
+              <Experience item={item} locale={locale} />
             </div>
           );
         })}

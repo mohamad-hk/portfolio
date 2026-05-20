@@ -10,10 +10,13 @@ import Link from "next/link";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects = ({ project_data }) => {
+const ProjectsCard = ({ project_data,locale }) => {
+  const translated_content = useTranslations("home");
+
   useEffect(() => {
     const cards = gsap.utils.toArray(".project-card");
 
@@ -83,7 +86,7 @@ const Projects = ({ project_data }) => {
 
                   <div className="flex flex-col">
                     <p className="text-warning uppercase text-sm font-bold">
-                      problem
+                      {translated_content("problem")}
                     </p>
 
                     <p className="text-muted-foreground">
@@ -99,7 +102,7 @@ const Projects = ({ project_data }) => {
 
                   <div className="flex flex-col">
                     <p className="text-success uppercase text-sm font-bold">
-                      solution
+                      {translated_content("solution")}
                     </p>
 
                     <p className="text-muted-foreground">
@@ -125,20 +128,22 @@ const Projects = ({ project_data }) => {
               <div className="flex flex-row flex-wrap justify-center sm:justify-stretch gap-4">
                 <Link
                   href={item.project_link}
-                  className="flex flex-row items-center gap-4 px-6 py-3 rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all duration-200 ease-in-out hover:text-primary hover:ring-primary"
+                  className="flex flex-row items-center gap-4 px-6 py-3 capitalize rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all duration-200 ease-in-out hover:text-primary hover:ring-primary"
                 >
-                  <p className="capitalize">live website</p>
+                  {translated_content("live website")}
 
                   <SquareArrowOutUpRight size={20} />
                 </Link>
 
                 <Link
-                  href={`/projects/${item.project_name}`}
-                  className="flex flex-row items-center gap-4 px-6 py-3 text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
+                  href={locale === "fa" ? `/fa/projects/${item.project_slug}` : `/en/projects/${item.project_slug}`}
+                  className="flex flex-row items-center gap-4 px-6 py-3 capitalize text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
                 >
-                  <p className="capitalize">read case study</p>
+                  {translated_content("read case study")}
+                  {
+                    locale==="en" ? <LucideArrowRight size={20} /> : <LucideArrowRight size={20} className="rotate-180" />
+                  }
 
-                  <LucideArrowRight />
                 </Link>
               </div>
             </div>
@@ -149,4 +154,4 @@ const Projects = ({ project_data }) => {
   );
 };
 
-export default Projects;
+export default ProjectsCard;

@@ -1,17 +1,14 @@
 import { Gallery } from "@/app/components/project/Gallery";
 import ProblemAndSolution from "@/app/components/project/Problem&solution";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ExternalLink,
-  SquareArrowOutUpRight,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, SquareArrowOutUpRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
 const CaseStudyProject = async ({ params }) => {
   const input = await params;
+  const translated_content = await getTranslations("project");
   const res = await fetch(
-    `${process.env.API_BASE_URL}/api/projects/project-detail?slug=${input.slug}`,
+    `${process.env.API_BASE_URL}/api/projects/project-detail?slug=${input.slug}&locale=${input.locale}`,
     {
       cache: "no-store",
     }
@@ -55,9 +52,9 @@ const CaseStudyProject = async ({ params }) => {
           <div className="flex">
             <Link
               href={primary_result.project_link}
-              className="flex flex-row items-center gap-4 px-6 py-3 rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all duration-200 ease-in-out hover:text-primary hover:ring-primary"
+              className="flex flex-row items-center gap-4 px-6 py-3 rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all capitalize duration-200 ease-in-out hover:text-primary hover:ring-primary"
             >
-              <p className="capitalize">live website</p>
+              {translated_content("live website")}
               <SquareArrowOutUpRight size={20} />
             </Link>
           </div>
@@ -66,7 +63,9 @@ const CaseStudyProject = async ({ params }) => {
 
       <section className="pb-20 px-6">
         <div className=" mx-auto">
-          <h2 className="font-display text-2xl font-bold mb-6">Background</h2>
+          <h2 className="font-display text-2xl font-bold mb-6">
+            {translated_content("background")}
+          </h2>
           <p className="text-muted-foreground leading-relaxed">
             {secondary_result.p_d_background}
           </p>
@@ -75,7 +74,9 @@ const CaseStudyProject = async ({ params }) => {
 
       <section className="pb-20 px-6">
         <div className=" mx-auto">
-          <h2 className="font-display text-2xl font-bold mb-6">Tech Stack</h2>
+          <h2 className="font-display text-2xl font-bold mb-6">
+            {translated_content("tech stack")}
+          </h2>
           <div className="flex flex-wrap gap-2">
             {primary_result.project_technologies.map((item_technology) => {
               return (
@@ -95,7 +96,7 @@ const CaseStudyProject = async ({ params }) => {
         <section className="pb-20 px-6">
           <div className=" mx-auto">
             <h2 className="font-display text-2xl font-bold mb-6">
-              Improvements
+              {translated_content("improvements")}
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               {secondary_result?.p_d_improvments.map((item, index) => (
@@ -116,7 +117,9 @@ const CaseStudyProject = async ({ params }) => {
 
       <section className="pb-20 px-6">
         <div className=" mx-auto">
-          <h2 className="font-display text-2xl font-bold mb-6">Gallery</h2>
+          <h2 className="font-display text-2xl font-bold mb-6">
+            {translated_content("gallery")}
+          </h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="rounded-xl border border-border overflow-hidden "></div>
           </div>
