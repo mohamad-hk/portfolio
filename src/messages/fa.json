@@ -1,38 +1,37 @@
 {
   "header": {
-    "projects": "پروژه‌ها",
-    "stack": "مهارت‌ها",
-    "experience": "تجربه‌ها",
+    "projects": "پروژه ها",
+    "stack": "مهارت ها",
+    "experience": "تجربه کاری",
     "contact": "تماس",
     "resume": "رزومه"
   },
-
   "home": {
-    "intro": "سلام اسم من هست",
-    "fullname": "محمد حسین کریمی",
-    "subintro": "و بسیار علاقه مند به توسعه وب هستم",
-    "resume": "رزومه",
-    "view projects": "دیدن پروژه ها",
+    "intro": "سلام، من",
+    "fullname": "محمد حسین کریمی هستم",
+    "subintro": "توسعه دهنده وب با علاقه زیاد به ساخت تجربه های دیجیتال کاربردی و مدرن",
+    "resume": "مشاهده رزومه من",
+    "view projects": "مشاهده پروژه ",
     "contact": "ارتباط با من",
-    "live website": "دیدن سایت",
-    "read case study": "مشاهده کیس استادی",
-    "problem": "مشکل",
+    "live website": "مشاهده وب سایت",
+    "read case study": "جزئیات پروژه",
+    "problem": "چالش",
     "solution": "راه حل",
-    "technicalStack": "تکنولوژی‌ ها",
-    "career": "مسیر حرفه‌ای من",
-    "projects": "پروژه‌های من",
-    "cta": "بیایید چیزی بسازیم",
-    "cta-description": "آماده همکاری در موقعیت های تمام وقت،  پاروه وقت،  هیبرید و پروژه ای"
+    "technicalStack": "تکنولوژی ها",
+    "career": "مسیر حرفه ای من",
+    "projects": "پروژه های من",
+    "cta": "همکاری بعدی می تواند از همین جا شروع شود",
+    "cta-description": "آماده همکاری در موقعیت های تمام وقت، پاره وقت، هیبرید و پروژه ای"
   },
   "project": {
-    "live website": "دیدن سایت",
-    "background": "مقدمه",
-    "tech stack": "تکنولوژی های بکار رفته",
-    "problem & solutions": "مشکلات و راه حل ها",
-    "improvements": "بهبود ها",
-    "gallery": "تصاویر"
+    "live website": "مشاهده وب سایت",
+    "background": "معرفی پروژه",
+    "tech stack": "تکنولوژی های استفاده شده",
+    "problem & solutions": "چالش ها و راه حل ها",
+    "improvements": "بهبودها",
+    "gallery": "تصاویر پروژه"
   },
   "footer": {
-    "description": "طراحی و توسعه با عشق توسط خودم"
+    "description": " ساخته شده با علاقه به طراحی و توسعه"
   }
 }
