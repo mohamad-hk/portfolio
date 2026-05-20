@@ -82,17 +82,12 @@ export async function GET(req) {
 
     return NextResponse.json(
       {
-        data: {
-          primary_result: result.rows[0],
-          secondary_result: result2.rows[0],
-        },
+        primary_result: result.rows[0],
+        secondary_result: result2.rows[0],
       },
       { status: 200 }
     );
   } catch (error) {
-    return NextResponse.json(
-      { message: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

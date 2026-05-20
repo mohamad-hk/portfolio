@@ -14,9 +14,8 @@ const CaseStudyProject = async ({ params }) => {
     }
   );
   const project_data = await res.json();
-  const project_detail_data = project_data.data;
-  const primary_result = project_detail_data.primary_result;
-  const secondary_result = project_detail_data.secondary_result;
+  const primary_result = project_data.primary_result;
+  const secondary_result = project_data.secondary_result;
   const projects = ["hydrogenous", "irancsta", "privatekernel"];
 
   const currentIndex = projects.findIndex(
