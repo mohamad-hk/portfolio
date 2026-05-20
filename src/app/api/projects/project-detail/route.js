@@ -34,7 +34,7 @@ export async function GET(req) {
 
       FROM tbl_projects
 
-      WHERE project_name = $1;
+      WHERE project_slug = $1;
       `,
       [project_slug]
     );

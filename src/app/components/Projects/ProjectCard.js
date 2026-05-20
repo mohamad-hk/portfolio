@@ -136,7 +136,7 @@ const ProjectsCard = ({ project_data,locale }) => {
                 </Link>
 
                 <Link
-                  href={locale === "fa" ? `/fa/projects/${item.project_name}` : `/en/projects/${item.project_name}`}
+                  href={locale === "fa" ? `/fa/projects/${item.project_slug}` : `/en/projects/${item.project_slug}`}
                   className="flex flex-row items-center gap-4 px-6 py-3 capitalize text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
                 >
                   {translated_content("read case study")}
