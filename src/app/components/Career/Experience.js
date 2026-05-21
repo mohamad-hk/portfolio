@@ -30,11 +30,11 @@ const Experience = ({ item, locale }) => {
   }, [locale]);
 
   return (
-    <div className="relative w-[84%] sm:w-[90%] md:w-full sm:max-w-[900px] rounded-lg bg-primary/10 p-4 sm:p-5 md:p-6 experience_animation">
+    <div className="relative w-auto  md:w-full sm:max-w-[900px] rounded-lg bg-primary/10 p-4 sm:p-5 md:p-6 experience_animation">
       {locale === "fa" ? (
-        <Dot className="absolute -right-15 sm:-right-15 md:-right-16 lg:-right-20 top-0 text-primary" size={90} />
+        <Dot className="absolute -right-15 sm:-right-15 md:-right-16 lg:-right-20 top-0 text-primary" size={100} />
       ) : (
-        <Dot className="absolute -left-16 sm:-left-15 md:-left-16 lg:-left-20 -top-2 text-primary" size={90} />
+        <Dot className="absolute -left-16 sm:-left-15 md:-left-16 lg:-left-20 -top-2 text-primary" size={100} />
       )}
 
       <div className="flex flex-col gap-2 rounded-lg">

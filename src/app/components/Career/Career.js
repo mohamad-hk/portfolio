@@ -13,38 +13,23 @@ const Career = async ({ locale }) => {
   let project_data = await res.json();
   let experince_items = project_data.data;
   return (
-    <div className="relative px-0 md:px-17 lg:px-33 ">
+    <div className="flex px-10 md:px-14 lg:px-20 items-stretch gap-3 sm:gap-2 md:gap-3 lg:gap-7">
+      <div className="relative w-[5px] sm:w-[3px] bg-white self-stretch">
+        <ChevronUp
+          className="absolute -top-4 left-1/2 -translate-x-1/2"
+          size={40}
+        />
+
+        <ChevronDown
+          className="absolute -bottom-4 left-1/2 -translate-x-1/2"
+          size={40}
+        />
+      </div>
       <div className="flex flex-col items-center md:items-start gap-6 sm:gap-8 md:gap-10">
         {experince_items.map((item, index) => {
           return <Experience key={index} item={item} locale={locale} />;
         })}
       </div>
-
-      <div
-        className={`absolute top-0 h-full w-[2px] bg-white -z-10 ${
-          locale === "fa"
-            ? "right-6 sm:right-5 md:right-12 lg:right-24"
-            : "left-[19px] sm:left-5 md:left-12 lg:left-24"
-        }`}
-      ></div>
-
-      <ChevronUp
-        className={`absolute -top-4 ${
-          locale === "fa"
-            ? "right-1 sm:right-0 md:right-7 lg:right-[77px]"
-            : "left-0 sm:left-0 md:left-7 lg:left-[77px]"
-        }`}
-        size={40}
-      />
-
-      <ChevronDown
-        className={`absolute -bottom-4 ${
-          locale === "fa"
-            ? "right-1 sm:right-0 md:right-7 lg:right-[77px]"
-            : "left-0 sm:left-0 md:left-7 lg:left-[77px]"
-        }`}
-        size={40}
-      />
     </div>
   );
 };
