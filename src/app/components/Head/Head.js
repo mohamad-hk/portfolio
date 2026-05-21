@@ -8,7 +8,7 @@ const Head = async ({ locale }) => {
   const translated_content = await getTranslations("home");
 
   return (
-    <div className=" flex flex-col gap-10 mt-32 mb-8 ">
+    <div className=" flex flex-col gap-10 mt-24 ">
       <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
         <Description translated_content={translated_content} />
         <ProfileImage />
