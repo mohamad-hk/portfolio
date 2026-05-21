@@ -7,19 +7,19 @@ import { Dot } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Experience = ({ item,locale }) => {
+const Experience = ({ item, locale }) => {
   useEffect(() => {
     gsap.utils.toArray(".experience_animation").forEach((el) => {
       gsap.fromTo(
         el,
-        { x: -100, opacity: 0 },
+        { x: locale === "fa" ? 50 : -50, opacity: 0 },
         {
           x: 0,
           opacity: 1,
           duration: 1,
           scrollTrigger: {
             trigger: el,
-            start: "top 100%",
+            start: "top 95%",
             end: "bottom 90%",
             scrub: false,
             toggleActions: "play none none reverse",
@@ -27,33 +27,38 @@ const Experience = ({ item,locale }) => {
         }
       );
     });
-  }, []);
+  }, [locale]);
 
   return (
-    <div className="flex flex-col w-[80vw] sm:w-[78vw] md:w-[85vw] lg:w-[50vw] max-w-[850px] experience_animation relative pb-14">
+    <div className="relative w-[84%] sm:w-[90%] md:w-full sm:max-w-[900px] rounded-lg bg-primary/10 p-4 sm:p-5 md:p-6 experience_animation">
       {locale === "fa" ? (
-        <Dot className="absolute -right-15 text-primary -top-2 " size={40} />
+        <Dot className="absolute -right-15 sm:-right-15 md:-right-16 lg:-right-20 top-0 text-primary" size={90} />
       ) : (
-        <Dot className="absolute -left-15 text-primary -top-2 " size={40} />
+        <Dot className="absolute -left-16 sm:-left-15 md:-left-16 lg:-left-20 -top-2 text-primary" size={90} />
       )}
-      <div className="flex flex-col  gap-1 relative rounded-lg ">
-        <span className="text-medium text-muted-foreground">
+
+      <div className="flex flex-col gap-2 rounded-lg">
+        <span className="text-sm sm:text-base text-muted-foreground">
           {item.experience_time}
         </span>
-        <h3 className="text-lg md:text-xl font-semibold">
+
+        <h3 className="text-base sm:text-lg md:text-xl font-semibold">
           {item.experience_title}
         </h3>
-        <h4 className="text-md md:text-lg font-semibold text-primary">
+
+        <h4 className="text-sm sm:text-base md:text-lg font-semibold text-primary">
           {item.experience_company}
         </h4>
-        <ul className=" flex flex-col gap-2">
+
+        <ul className="flex flex-col gap-2">
           {item.experience_description.map((item_description) => (
             <li
-              className=" text-sm md:text-base flex flex-row items-center sm:items-end"
+              className="flex flex-row items-start gap-1 text-sm sm:text-base"
               key={item_description.id}
             >
-              <Dot className="text-primary" size={16} />
-              <p className="text-muted-foreground text-justify">
+              <Dot className="mt-1 shrink-0 text-primary" size={28} />
+
+              <p className="text-sm sm:text-base text-muted-foreground text-justify leading-relaxed">
                 {item_description.description}
               </p>
             </li>
