@@ -133,7 +133,11 @@ const CaseStudyProject = async ({ params }) => {
           {prevProject === undefined ? <div /> : ""}
           {prevProject !== undefined && (
             <Link
-              href={`/projects/${prevProject}`}
+              href={`${
+                input.locale === "fa"
+                  ? `/fa/projects/${prevProject}`
+                  : `en/projects/${prevProject}`
+              }`}
               className="text-sm text-muted-foreground hover:transition-colors inline-flex items-center gap-2"
             >
               <ArrowLeft size={14} /> {prevProject}
@@ -142,7 +146,11 @@ const CaseStudyProject = async ({ params }) => {
 
           {nextProject !== undefined && (
             <Link
-              href={`/projects/${nextProject}`}
+              href={`${
+                input.locale === "fa"
+                  ? `/fa/projects/${nextProject}`
+                  : `en/projects/${nextProject}`
+              }`}
               className="text-sm text-primary hover:transition-colors inline-flex items-center gap-2"
             >
               {nextProject} <ArrowRight size={14} />
