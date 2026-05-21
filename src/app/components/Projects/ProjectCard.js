@@ -14,7 +14,7 @@ import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectsCard = ({ project_data,locale }) => {
+const ProjectsCard = ({ project_data, locale }) => {
   const translated_content = useTranslations("home");
 
   useEffect(() => {
@@ -25,20 +25,15 @@ const ProjectsCard = ({ project_data,locale }) => {
         card,
         {
           opacity: 0,
-          y: 80,
-          scale: 0.95,
         },
         {
           opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "power3.out",
+          duration: 1,
+          ease: "power1.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -136,14 +131,19 @@ const ProjectsCard = ({ project_data,locale }) => {
                 </Link>
 
                 <Link
-                  href={locale === "fa" ? `/fa/projects/${item.project_slug}` : `/en/projects/${item.project_slug}`}
+                  href={
+                    locale === "fa"
+                      ? `/fa/projects/${item.project_slug}`
+                      : `/en/projects/${item.project_slug}`
+                  }
                   className="flex flex-row items-center gap-4 px-6 py-3 capitalize text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
                 >
                   {translated_content("read case study")}
-                  {
-                    locale==="en" ? <LucideArrowRight size={20} /> : <LucideArrowRight size={20} className="rotate-180" />
-                  }
-
+                  {locale === "en" ? (
+                    <LucideArrowRight size={20} />
+                  ) : (
+                    <LucideArrowRight size={20} className="rotate-180" />
+                  )}
                 </Link>
               </div>
             </div>
