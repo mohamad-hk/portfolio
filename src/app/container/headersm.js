@@ -1,10 +1,13 @@
 "use client";
 import { Sheet, SheetContent, SheetTrigger } from "@/app/components/ui/sheet";
 import { Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
+import LanguageToggle from "../components/ui/LanguageToggle";
 const HeaderSm = () => {
   const [open, setOpen] = useState(false);
+  const translated = useTranslations("header");
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -17,7 +20,7 @@ const HeaderSm = () => {
             href="#"
             className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white text-sm"
           >
-            Projects
+            {translated("projects")}
           </Link>
         </SheetTrigger>
         <SheetTrigger asChild>
@@ -25,7 +28,7 @@ const HeaderSm = () => {
             href="#"
             className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white text-sm"
           >
-            Stack
+            {translated("stack")}
           </Link>
         </SheetTrigger>
         <SheetTrigger asChild>
@@ -33,7 +36,7 @@ const HeaderSm = () => {
             href="#"
             className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white text-sm"
           >
-            Experience
+            {translated("experience")}
           </Link>
         </SheetTrigger>
         <SheetTrigger asChild>
@@ -41,7 +44,7 @@ const HeaderSm = () => {
             href="#"
             className="text-muted-foreground transition-all duration-200 ease-in-out hover:text-white text-sm"
           >
-            Contact
+            {translated("contact")}
           </Link>
         </SheetTrigger>
         <SheetTrigger asChild>
@@ -49,8 +52,11 @@ const HeaderSm = () => {
             href="#"
             className="ring-muted-foreground/30 ring-[1px] w-fit rounded-lg px-4 py-2 text-sm transition-all duration-200 ease-in-out hover:ring-primary/50 hover:text-primary"
           >
-            Resume
+            {translated("resume")}
           </Link>
+        </SheetTrigger>
+        <SheetTrigger className="flex md:hidden" asChild>
+          <LanguageToggle />
         </SheetTrigger>
       </SheetContent>
     </Sheet>

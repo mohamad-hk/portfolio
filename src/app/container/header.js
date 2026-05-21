@@ -1,14 +1,50 @@
+"use client";
+
 import Link from "next/link";
-import { getLocale, getTranslations } from "next-intl/server";
+import { useEffect, useState } from "react";
 
 import HeaderScrollHandler from "../lib/HeaderScroll";
 import HeaderSm from "./headersm";
 import LanguageToggle from "../components/ui/LanguageToggle";
+import { useTranslations } from "next-intl";
 
-const Header = async () => {
+const Header = ({ locale }) => {
   const logo = "<dev/>";
-  const locale = await getLocale();
-  const translated = await getTranslations("header");
+  const [activeSection, setActiveSection] = useState("");
+  const translated = useTranslations("header");
+
+  useEffect(() => {
+    const sections = ["projects", "stack", "experience", "contact"];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+        rootMargin: "-80px 0px -40% 0px",
+      }
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const navLinkClass = (section) =>
+    activeSection === section
+      ? "text-primary transition-colors duration-300"
+      : "text-muted-foreground hover:text-white transition-colors duration-300";
 
   return (
     <div
@@ -20,19 +56,25 @@ const Header = async () => {
       <Link href={`/${locale}`}>{logo}</Link>
 
       <nav className="hidden md:flex flex-row items-center gap-10 place-self-center">
-        <Link href={`/${locale}/#projects`} className="text-muted-foreground hover:text-white">
+        <Link
+          href={`/${locale}/#projects`}
+          className={navLinkClass("projects")}
+        >
           {translated("projects")}
         </Link>
 
-        <Link href={`/${locale}/#stack`} className="text-muted-foreground hover:text-white">
+        <Link href={`/${locale}/#stack`} className={navLinkClass("stack")}>
           {translated("stack")}
         </Link>
 
-        <Link href={`/${locale}/#experience`} className="text-muted-foreground hover:text-white">
+        <Link
+          href={`/${locale}/#experience`}
+          className={navLinkClass("experience")}
+        >
           {translated("experience")}
         </Link>
 
-        <Link href={`/${locale}/#contact`} className="text-muted-foreground hover:text-white">
+        <Link href={`/${locale}/#contact`} className={navLinkClass("contact")}>
           {translated("contact")}
         </Link>
 
@@ -44,7 +86,10 @@ const Header = async () => {
           {translated("resume")}
         </a>
       </nav>
-      <LanguageToggle/>
+
+      <div className="hidden md:flex">
+        <LanguageToggle />
+      </div>
 
       <HeaderSm />
     </div>
