@@ -10,14 +10,14 @@ export async function GET(req) {
     const result = await pool.query(`
       SELECT
         experience_id,
-        experience_time,
 
         ${
           isFa
             ? `
           COALESCE(experience_title_fa, experience_title) AS experience_title,
           COALESCE(experience_company_fa, experience_company) AS experience_company,
-          COALESCE(experience_description_fa, experience_description) AS experience_description
+          COALESCE(experience_description_fa, experience_description) AS experience_description,
+          COALESCE(experience_time_fa, experience_time) AS experience_time
         `
             : `
           experience_title,
