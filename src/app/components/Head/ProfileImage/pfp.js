@@ -3,7 +3,7 @@ import TiltedCard from "../../ui/ProfileCard";
 const ProfileImage = () => {
   return (
     <TiltedCard
-      imageSrc="/images/personal-image.webp"
+      imageSrc="/images/Mohamamd-hossein-karimi.webp"
       altText="Mohammad hossein karimi"
       containerHeight="300px"
       containerWidth="300px"
