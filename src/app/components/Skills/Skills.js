@@ -16,7 +16,7 @@ const Skills = async ({ locale }) => {
     <div className="flex flex-col justify-center items-center   ">
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-[90%]">
         {data.map((category) => (
-          <div className="bg-secondary/90 p-4 rounded-xl" key={category.id}>
+          <div className="bg-secondary p-4 rounded-xl" key={category.id}>
             <h2 className="text-md font-semibold text-muted-foreground mb-0 uppercase">
               {category.name}
             </h2>
