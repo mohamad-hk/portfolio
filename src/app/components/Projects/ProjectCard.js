@@ -60,8 +60,11 @@ const ProjectsCard = ({ project_data, locale }) => {
               src={item.project_demo}
               autoPlay
               loop
+              playsInline
+              muted
+              
               controls={false}
-              className="max-w-md pointer-events-none"
+              className="w-full max-w-md pointer-events-none object-cover rounded-3xl aspect-video overflow-hidden"
             />
 
             <div className="flex flex-col gap-4 max-w-3xl">
