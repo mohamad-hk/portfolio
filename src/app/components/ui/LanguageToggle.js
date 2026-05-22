@@ -3,15 +3,22 @@
 import { useRouter, usePathname } from "next/navigation";
 
 export default function LanguageToggle() {
-  const router = useRouter();
-  const pathname = usePathname();
+const router = useRouter();
+const pathname = usePathname();
 
-  const isFa = pathname.startsWith("/fa");
+const isFa = pathname.startsWith("/fa");
 
-  const toggleLanguage = () => {
-    router.push(isFa ? "/en" : "/fa");
-  };
+const toggleLanguage = () => {
+  let newPath;
 
+  if (isFa) {
+    newPath = pathname.replace(/^\/fa/, "/en");
+  } else {
+    newPath = pathname.replace(/^\/en/, "/fa");
+  }
+
+  router.push(newPath);
+};
   return (
     <button
       onClick={toggleLanguage}

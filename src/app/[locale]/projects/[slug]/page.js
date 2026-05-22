@@ -4,6 +4,33 @@ import { ArrowLeft, ArrowRight, SquareArrowOutUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
+export async function generateMetadata({ params }) {
+  const input = await params;
+
+  const res = await fetch(
+    `${process.env.API_BASE_URL}/api/projects/project-detail?slug=${input.slug}&locale=${input.locale}`,
+    {
+      next: {
+        revalidate: 604800,
+      },
+    }
+  );
+
+  const project_data = await res.json();
+  const primary_result = project_data.primary_result;
+  const secondary_result = project_data.secondary_result;
+
+  return {
+    title: `${primary_result.project_name} | Mohamad Amin Karimi`,
+    description: secondary_result.p_d_subtitle,
+
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
+
 const CaseStudyProject = async ({ params }) => {
   const input = await params;
   const translated_content = await getTranslations("project");
@@ -133,7 +160,11 @@ const CaseStudyProject = async ({ params }) => {
           {prevProject === undefined ? <div /> : ""}
           {prevProject !== undefined && (
             <Link
-              href={`/projects/${prevProject}`}
+              href={`${
+                input.locale === "fa"
+                  ? `/fa/projects/${prevProject}`
+                  : `en/projects/${prevProject}`
+              }`}
               className="text-sm text-muted-foreground hover:transition-colors inline-flex items-center gap-2"
             >
               <ArrowLeft size={14} /> {prevProject}
@@ -142,7 +173,11 @@ const CaseStudyProject = async ({ params }) => {
 
           {nextProject !== undefined && (
             <Link
-              href={`/projects/${nextProject}`}
+              href={`${
+                input.locale === "fa"
+                  ? `/fa/projects/${nextProject}`
+                  : `en/projects/${nextProject}`
+              }`}
               className="text-sm text-primary hover:transition-colors inline-flex items-center gap-2"
             >
               {nextProject} <ArrowRight size={14} />

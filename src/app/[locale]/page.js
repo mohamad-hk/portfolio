@@ -10,7 +10,7 @@ export default async function App({ params }) {
   const { locale } = await params;
   const translated_content = await getTranslations("home");
   return (
-    <main className=" flex flex-col gap-6">
+    <main className=" flex flex-col gap-10">
       <Head locale={locale} />
 
       <BlurText
@@ -18,7 +18,7 @@ export default async function App({ params }) {
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-2xl mb-8"
+        className="text-2xl"
         id="stack"
       />
       <Skills locale={locale} />
@@ -28,7 +28,7 @@ export default async function App({ params }) {
         delay={150}
         animateBy="words"
         direction="top"
-        className="  text-2xl mb-8"
+        className="  text-2xl"
         id="experience"
       />
       <Career locale={locale} />
@@ -37,7 +37,7 @@ export default async function App({ params }) {
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-2xl mb-8"
+        className="text-2xl"
         id="projects"
       />
       <Projects locale={locale} />
@@ -46,7 +46,7 @@ export default async function App({ params }) {
         delay={150}
         animateBy="words"
         direction="top"
-        className="text-2xl mb-8"
+        className="text-2xl"
         id="contact"
       />
       <ContactUs translated_content={translated_content} />

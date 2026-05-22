@@ -3,8 +3,7 @@ import Link from "next/link";
 
 const ContactUs = ({translated_content}) => {
   return (
-    <section className="flex flex-col gap-4 items-center">
-      {/* <p className=" text-center text-muted-foreground text-xl">Open to full-time roles, contract work, and texhnical consulting</p> */}
+    <section className="flex flex-col gap-4 items-center px-10 md:px-0">
       <p>{translated_content("cta-description")}</p>
       <div className="flex flex-row flex-wrap justify-center sm:justify-stretch gap-4 mb-6">
         <Link
