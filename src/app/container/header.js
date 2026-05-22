@@ -7,6 +7,7 @@ import HeaderScrollHandler from "../lib/HeaderScroll";
 import HeaderSm from "./headersm";
 import LanguageToggle from "../components/ui/LanguageToggle";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const Header = ({ locale }) => {
   const logo = "<dev/>";
@@ -53,7 +54,9 @@ const Header = ({ locale }) => {
     >
       <HeaderScrollHandler />
 
-      <Link href={`/${locale}`}>{logo}</Link>
+      <Link href={`/${locale}`}>
+        <Image src="/images/logo.png" width={80} height={100} alt="Logo" />
+      </Link>
 
       <nav className="hidden md:flex flex-row items-center gap-10 place-self-center">
         <Link

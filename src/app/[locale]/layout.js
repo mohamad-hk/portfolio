@@ -13,8 +13,21 @@ import { enFont, faFont } from "@/app/fonts";
 export const metadata = {
   title: "Mohammad hossein karimi | full stack web developer",
   description: "",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
-
 export default async function RootLayout({ children, params }) {
   const { locale } = await params;
 
@@ -32,6 +45,7 @@ export default async function RootLayout({ children, params }) {
       dir={locale === "fa" ? "rtl" : "ltr"}
       className={`${enFont.variable} ${faFont.variable}`}
     >
+
       <body
         className={`relative text-white ${
           locale === "en"
@@ -41,7 +55,7 @@ export default async function RootLayout({ children, params }) {
       >
         <NextIntlClientProvider messages={messages}>
           <Background />
-          <Header />
+          <Header locale={locale} />
           {children}
           <Footer />
         </NextIntlClientProvider>
