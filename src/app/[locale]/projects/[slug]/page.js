@@ -4,6 +4,33 @@ import { ArrowLeft, ArrowRight, SquareArrowOutUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
+export async function generateMetadata({ params }) {
+  const input = await params;
+
+  const res = await fetch(
+    `${process.env.API_BASE_URL}/api/projects/project-detail?slug=${input.slug}&locale=${input.locale}`,
+    {
+      next: {
+        revalidate: 604800,
+      },
+    }
+  );
+
+  const project_data = await res.json();
+  const primary_result = project_data.primary_result;
+  const secondary_result = project_data.secondary_result;
+
+  return {
+    title: `${primary_result.project_name} | Mohamad Amin Karimi`,
+    description: secondary_result.p_d_subtitle,
+
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
+
 const CaseStudyProject = async ({ params }) => {
   const input = await params;
   const translated_content = await getTranslations("project");
