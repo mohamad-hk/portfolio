@@ -77,7 +77,7 @@ const ProjectsCard = ({ project_data, locale }) => {
               </p>
 
               <div className="flex flex-col gap-3">
-                <div className="flex flex-row gap-4 bg-accent rounded-lg p-2">
+                <div className="flex flex-row gap-4 bg-[#0d1b2a] rounded-lg p-2">
                   <div>
                     <LucideTriangleAlert size={24} className="text-warning" />
                   </div>
@@ -93,7 +93,7 @@ const ProjectsCard = ({ project_data, locale }) => {
                   </div>
                 </div>
 
-                <div className="flex flex-row gap-4 bg-accent rounded-lg p-2">
+                <div className="flex flex-row gap-4 bg-[#0d1b2a] rounded-lg p-2">
                   <div>
                     <LucideCircleCheckBig size={24} className="text-success" />
                   </div>
@@ -115,7 +115,7 @@ const ProjectsCard = ({ project_data, locale }) => {
                   return (
                     <div
                       key={item_technology.id}
-                      className="rounded-xl px-4 py-1 text-sm bg-secondary font-semibold text-secondary-foreground transition-all duration-300 ease-in-out hover:bg-accent/80"
+                      className="rounded-xl px-4 py-1 text-sm bg-secondary font-semibold text-secondary-foreground transition-all duration-300 ease-in-out hover:bg-[#0d1b2a]/80"
                     >
                       {item_technology.technology_name}
                     </div>
@@ -139,7 +139,7 @@ const ProjectsCard = ({ project_data, locale }) => {
                       ? `/fa/projects/${item.project_slug}`
                       : `/en/projects/${item.project_slug}`
                   }
-                  className="flex flex-row items-center gap-4 px-6 py-3 capitalize text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-accent hover:text-white"
+                  className="flex flex-row items-center gap-4 px-6 py-3 capitalize text-muted-foreground rounded-lg transition-all duration-200 ease-in-out hover:bg-[#0d1b2a] hover:text-white"
                 >
                   {translated_content("read case study")}
                   {locale === "en" ? (
