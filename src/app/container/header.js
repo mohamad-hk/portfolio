@@ -49,7 +49,7 @@ const Header = ({ locale }) => {
 
   return (
     <div
-      className="flex flex-row justify-between items-center py-3 px-6 md:px-20 border-b-2 border-muted-foreground/30 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-black/70 backdrop-blur-xl"
+      className="flex flex-row justify-between items-center py-3 px-6 md:px-20 border-b border-white/5 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-[#001219]/80 backdrop-blur-xl"
       id="header_desktop"
     >
       <HeaderScrollHandler />
@@ -59,10 +59,7 @@ const Header = ({ locale }) => {
       </Link>
 
       <nav className="hidden md:flex flex-row items-center gap-10 place-self-center">
-        <Link
-          href={`/${locale}/#projects`}
-          className={navLinkClass("projects")}
-        >
+        <Link href={`/${locale}/#projects`} className={navLinkClass("projects")}>
           {translated("projects")}
         </Link>
 
@@ -70,10 +67,7 @@ const Header = ({ locale }) => {
           {translated("stack")}
         </Link>
 
-        <Link
-          href={`/${locale}/#experience`}
-          className={navLinkClass("experience")}
-        >
+        <Link href={`/${locale}/#experience`} className={navLinkClass("experience")}>
           {translated("experience")}
         </Link>
 

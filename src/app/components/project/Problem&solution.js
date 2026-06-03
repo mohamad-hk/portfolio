@@ -55,7 +55,7 @@ const ProblemAndSolution = ({ secondaryResult }) => {
             {secondaryResult?.p_d_problem?.map((item, index) => (
               <li
                 key={index}
-                className="problem-item  rounded-2xl border border-slate-800/80 bg-slate-950/40 p-5 backdrop-blur-sm transition-all duration-300 hover:border-red-400/30 hover:bg-slate-900/60"
+                className="problem-item  rounded-2xl border border-slate-800/80 bg-slate-950/50 p-5 backdrop-blur-sm transition-all duration-300 hover:border-red-400/30 hover:bg-slate-900/60"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-red-500/20 bg-red-500/10 text-red-400">
@@ -74,7 +74,7 @@ const ProblemAndSolution = ({ secondaryResult }) => {
             {secondaryResult?.p_d_solution?.map((item, index) => (
               <li
                 key={index}
-                className="solution-item  rounded-2xl border border-slate-800/80 bg-slate-950/40 p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/30 hover:bg-slate-900/60"
+                className="solution-item  rounded-2xl border border-slate-800/80 bg-slate-950/50 p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/30 hover:bg-slate-900/60"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/10 text-blue-400">

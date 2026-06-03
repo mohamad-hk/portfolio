@@ -1,4 +1,3 @@
-import Background from "@/app/components/ui/Background";
 import Footer from "@/app/container/footer";
 import Header from "@/app/container/header";
 import "@/app/globals.css";
@@ -9,15 +8,14 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { enFont, faFont } from "@/app/fonts";
+import DotGrid from "../components/ui/Background";
+import Script from "next/script";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
 
   return {
-    title:
-      locale === "fa"
-        ? "محمدحسین کریمی | توسعه دهنده فول استک"
-        : "Mohammad Hossein Karimi | Full Stack Web Developer",
+    title: locale === "fa" ? "محمدحسین کریمی | توسعه دهنده فول استک" : "Mohammad Hossein Karimi | Full Stack Web Developer",
 
     description:
       locale === "fa"
@@ -52,23 +50,49 @@ export default async function RootLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      dir={locale === "fa" ? "rtl" : "ltr"}
-      className={`${enFont.variable} ${faFont.variable}`}
-    >
+    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"} className={`${enFont.variable} ${faFont.variable}`}>
+      <head>
+        <Script>
+          {`  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GCJRM5T');`}
+        </Script>
+      </head>
       <body
-        className={`relative text-white ${
-          locale === "en"
-            ? "[font-family:var(--font-en)]"
-            : "[font-family:var(--font-fa)]"
+        className={`relative min-h-screen overflow-x-hidden text-white bg-[#001219] ${
+          locale === "en" ? "[font-family:var(--font-en)]" : "[font-family:var(--font-fa)]"
         }`}
       >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5GCJRM5T"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          ></iframe>
+        </noscript>
         <NextIntlClientProvider messages={messages}>
-          <Background />
-          <Header locale={locale} />
-          {children}
-          <Footer />
+          <div className="fixed inset-0 z-0 pointer-events-none opacity-50">
+            <DotGrid
+              dotSize={3}
+              gap={55}
+              baseColor="#002B3D"
+              activeColor="#5227FF"
+              proximity={100}
+              shockRadius={200}
+              shockStrength={0}
+              resistance={300}
+              returnDuration={1}
+            />
+          </div>
+
+          <div className="relative z-10">
+            <Header locale={locale} />
+            {children}
+            <Footer />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>
