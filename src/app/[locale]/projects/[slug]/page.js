@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   const secondary_result = project_data.secondary_result;
 
   return {
-    title: `${primary_result.project_name} | Mohamad Amin Karimi`,
+    title: `${primary_result.project_name} | Mohamad Hossein Karimi`,
     description: secondary_result.p_d_subtitle,
 
     robots: {
