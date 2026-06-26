@@ -1,5 +1,6 @@
 import { Gallery } from "@/app/components/project/Gallery";
 import ProblemAndSolution from "@/app/components/project/Problem&solution";
+import ScrollReveal from "@/app/components/ui/ScrollReveal";
 import { ArrowLeft, ArrowRight, SquareArrowOutUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
@@ -47,16 +48,15 @@ const CaseStudyProject = async ({ params }) => {
   const secondary_result = project_data.secondary_result;
   const projects = ["hydrogenous", "irancsta", "privatekernel"];
 
-  const currentIndex = projects.findIndex(
-    (item) => item === primary_result.project_name.toLowerCase()
-  );
+  const currentIndex = projects.findIndex((item) => item === input.slug);
 
   const nextProject = projects[currentIndex + 1];
   const prevProject = projects[currentIndex - 1];
 
   return (
     <div className=" w-[90%] mx-auto pt-24">
-      <section className="pb-16 px-6">
+      <ScrollReveal />
+      <section className="case-hero pb-16 px-6">
         <div className="">
           {/* <Link
             to="/#projects"
@@ -80,16 +80,16 @@ const CaseStudyProject = async ({ params }) => {
           <div className="flex">
             <Link
               href={primary_result.project_link}
-              className="flex flex-row items-center gap-4 px-6 py-3 rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all capitalize duration-200 ease-in-out hover:text-primary hover:ring-primary"
+              className="group flex flex-row items-center gap-4 px-6 py-3 rounded-lg font-medium ring-muted-foreground/20 ring-1 transition-all capitalize duration-200 ease-in-out hover:-translate-y-0.5 hover:text-primary hover:ring-primary"
             >
               {translated_content("live website")}
-              <SquareArrowOutUpRight size={20} />
+              <SquareArrowOutUpRight size={20} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="pb-20 px-6">
+      <section className="reveal-section pb-20 px-6">
         <div className=" mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">
             {translated_content("background")}
@@ -100,7 +100,7 @@ const CaseStudyProject = async ({ params }) => {
         </div>
       </section>
 
-      <section className="pb-20 px-6">
+      <section className="reveal-section pb-20 px-6">
         <div className=" mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">
             {translated_content("tech stack")}
@@ -121,7 +121,7 @@ const CaseStudyProject = async ({ params }) => {
       </section>
       <ProblemAndSolution secondaryResult={secondary_result} />
       {secondary_result.p_d_improvments && (
-        <section className="pb-20 px-6">
+        <section className="reveal-section pb-20 px-6">
           <div className=" mx-auto">
             <h2 className="font-display text-2xl font-bold mb-6">
               {translated_content("improvements")}
@@ -143,7 +143,7 @@ const CaseStudyProject = async ({ params }) => {
         </section>
       )}
 
-      <section className="pb-20 px-6">
+      <section className="reveal-section pb-20 px-6">
         <div className=" mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">
             {translated_content("gallery")}
@@ -155,7 +155,7 @@ const CaseStudyProject = async ({ params }) => {
         </div>
       </section>
 
-      <section className="pb-32 px-6">
+      <section className="reveal-section pb-32 px-6">
         <div className=" mx-auto flex justify-between items-center border-t border-border pt-8">
           {prevProject === undefined ? <div /> : ""}
           {prevProject !== undefined && (
@@ -163,11 +163,11 @@ const CaseStudyProject = async ({ params }) => {
               href={`${
                 input.locale === "fa"
                   ? `/fa/projects/${prevProject}`
-                  : `en/projects/${prevProject}`
+                  : `/en/projects/${prevProject}`
               }`}
-              className="text-sm text-muted-foreground hover:transition-colors inline-flex items-center gap-2"
+              className="group text-sm text-muted-foreground transition-colors inline-flex items-center gap-2 hover:text-white"
             >
-              <ArrowLeft size={14} /> {prevProject}
+              <ArrowLeft size={14} className="transition-transform duration-200 group-hover:-translate-x-1" /> {prevProject}
             </Link>
           )}
 
@@ -176,11 +176,11 @@ const CaseStudyProject = async ({ params }) => {
               href={`${
                 input.locale === "fa"
                   ? `/fa/projects/${nextProject}`
-                  : `en/projects/${nextProject}`
+                  : `/en/projects/${nextProject}`
               }`}
-              className="text-sm text-primary hover:transition-colors inline-flex items-center gap-2"
+              className="group text-sm text-primary transition-colors inline-flex items-center gap-2 hover:text-white"
             >
-              {nextProject} <ArrowRight size={14} />
+              {nextProject} <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           )}
           {nextProject === undefined ? <div /> : ""}
