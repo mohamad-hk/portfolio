@@ -44,7 +44,7 @@ const ProblemAndSolution = ({ secondaryResult }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="pb-20 px-6 overflow-x-hidden">
+    <section ref={sectionRef} className="pb-20 px-2 lg:px-6 overflow-x-hidden">
       <div>
         <h2 className="font-display text-2xl font-bold mb-8 text-white">
           {translated_content("problem & solutions")}

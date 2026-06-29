@@ -10,46 +10,62 @@ export default async function App({ params }) {
   const { locale } = await params;
   const translated_content = await getTranslations("home");
   return (
-    <main className=" flex flex-col gap-10">
+    <main className="flex flex-col">
       <Head locale={locale} />
 
-      <BlurText
-        text={translated_content("technicalStack")}
-        delay={150}
-        animateBy="words"
-        direction="top"
-        className="text-2xl"
-        id="stack"
-      />
-      <Skills locale={locale} />
+      <section className="py-14 md:py-20">
+        <BlurText
+          text={translated_content("technicalStack")}
+          delay={120}
+          animateBy="words"
+          direction="top"
+          className="text-3xl font-semibold text-white"
+          id="stack"
+        />
+        <div className="mt-8 md:mt-10">
+          <Skills locale={locale} />
+        </div>
+      </section>
 
-      <BlurText
-        text={translated_content("career")}
-        delay={150}
-        animateBy="words"
-        direction="top"
-        className="  text-2xl"
-        id="experience"
-      />
-      <Career locale={locale} />
-      <BlurText
-        text={translated_content("projects")}
-        delay={150}
-        animateBy="words"
-        direction="top"
-        className="text-2xl"
-        id="projects"
-      />
-      <Projects locale={locale} />
-      <BlurText
-        text={translated_content("cta")}
-        delay={150}
-        animateBy="words"
-        direction="top"
-        className="text-2xl"
-        id="contact"
-      />
-      <ContactUs translated_content={translated_content} />
+      <section className="py-14 md:py-20">
+        <BlurText
+          text={translated_content("career")}
+          delay={120}
+          animateBy="words"
+          direction="top"
+          className="text-3xl font-semibold text-white"
+          id="experience"
+        />
+        <div className="mt-8 md:mt-10">
+          <Career locale={locale} />
+        </div>
+      </section>
+
+      <section className="py-14 md:py-20">
+        <BlurText
+          text={translated_content("projects")}
+          delay={120}
+          animateBy="words"
+          direction="top"
+          className="text-3xl font-semibold text-white"
+          id="projects"
+        />
+          <Projects locale={locale} />
+      </section>
+
+      <section className="py-14 md:py-20">
+        <BlurText
+          text={translated_content("cta")}
+          delay={120}
+          animateBy="words"
+          direction="top"
+          className="text-3xl font-semibold text-white"
+          id="contact"
+        />
+        <div className="mt-8 md:mt-10">
+          <ContactUs translated_content={translated_content} />
+        </div>
+      </section>
     </main>
   );
 }
