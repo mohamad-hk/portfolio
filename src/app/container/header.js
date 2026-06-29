@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 import HeaderScrollHandler from "../lib/HeaderScroll";
 import HeaderSm from "./headersm";
 import LanguageToggle from "../components/ui/LanguageToggle";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 const Header = ({ locale }) => {
-  const logo = "<dev/>";
   const [activeSection, setActiveSection] = useState("");
   const translated = useTranslations("header");
+  const currentLocale = useLocale();
 
   useEffect(() => {
     const sections = ["projects", "stack", "experience", "contact"];
@@ -54,7 +54,7 @@ const Header = ({ locale }) => {
     >
       <HeaderScrollHandler />
 
-      <Link href={`/${locale}`}>
+      <Link href={`/${currentLocale}`}>
         <Image src="/images/logo.png" width={80} height={100} alt="Logo" />
       </Link>
 
