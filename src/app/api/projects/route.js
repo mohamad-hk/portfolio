@@ -14,6 +14,7 @@ export async function GET(req) {
         project_link,
         project_technologies,
         project_slug,
+        project_name,
 
         ${
           isFa
